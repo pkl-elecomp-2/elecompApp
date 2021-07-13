@@ -1,0 +1,220 @@
+:host {
+  ion-content {
+    --padding-start: 16px;
+    --padding-end: 16px;
+    --padding-top: 16px;
+    // --padding-bottom: 16px;
+
+    .c-top {
+      margin: -16px -16px 0px -16px;
+
+      .c-content {
+        height: 40px;
+        background: var(--ion-color-primary);
+      }
+      .content {
+        background: white;
+        margin: 0 16px;
+        // height: 50px;
+        border-radius: 10px;
+        box-shadow: 0 0 7px -2px rgba(0, 0, 0, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+        transform: translateY(-50%);
+
+        .logo {
+          flex: 1;
+
+          img {
+            height: 20px;
+            padding-top: 1px;
+            padding-left: 5px;
+          }
+        }
+
+        ion-icon {
+          font-size: 16pt;
+        }
+      }
+    }
+
+    .c-banner {
+      margin: 0 -16px;
+
+      ion-slides {
+        padding-bottom: 30px;
+
+        ion-slide {
+          background: white;
+          height: 150px;
+          border-radius: 10px;
+
+          img {
+            height: auto;
+            width: auto;
+            border-radius: 10px;
+          }
+        }
+      }
+    }
+
+    .c-promo {
+      margin: 0 -16px;
+
+      .title {
+        padding: 16px 16px 10px 16px;
+        column-width: 50%;
+      }
+
+      .d-title {
+        color: var(--ion-color-primary);
+        padding-right: 16px;
+        text-align: right;
+        column-width: 50%;
+        font-size: small;
+      }
+
+      ion-slides {
+        padding-bottom: 30px;
+        margin-left: 15px;
+        align-items: center;
+
+        ion-slide {
+          background: white;
+          border-radius: 10px;
+          // padding-top: 100%;
+
+          img {
+            height: auto;
+            width: auto;
+            border-radius: 10px;
+          }
+
+          &:before {
+            content: "";
+            margin-top: 100%;
+          }
+        }
+      }
+    }
+
+    .c-event {
+      margin: 0 -16px;
+
+      .title {
+        padding: 16px 16px 10px 16px;
+      }
+
+      .d-title {
+        color: var(--ion-color-primary);
+        padding-right: 16px;
+        text-align: right;
+        column-width: 50%;
+        font-size: small;
+      }
+      ion-slides {
+        padding-bottom: 30px;
+        margin-left: 15px;
+
+        ion-slide {
+          background: white;
+          border-radius: 10px;
+          // padding-top: 100%;
+
+          img {
+            height: auto;
+            width: auto;
+            border-radius: 10px;
+          }
+
+          &:before {
+            content: "";
+            margin-top: 100%;
+          }
+        }
+      }
+    }
+
+    .c-galeri {
+      padding-bottom: 30px;
+
+      .title {
+        padding-top: 16px;
+        padding-bottom: 10px;
+      }
+
+      .d-title {
+        color: var(--ion-color-primary);
+        padding-right: 16px;
+        text-align: right;
+        column-width: 50%;
+        font-size: small;
+      }
+
+      .galeri {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 10px;
+
+        div {
+          width: 100%;
+          background: white;
+          // padding-top: 100%;
+          border-radius: 10px;
+
+          img {
+            height: auto;
+            width: auto;
+            border-radius: 10px;
+          }
+        }
+      }
+    }
+
+    .c-survey {
+      margin: 0 -16px;
+      background: var(--ion-color-primary-850);
+      padding: 16px;
+
+      .title {
+        padding-top: 16px;
+        padding-bottom: 10px;
+      }
+
+      form {
+        margin-top: 10px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+
+        ion-item {
+          --border-radius: 5px;
+          margin-top: 10px;
+        }
+
+        .btn {
+          background: var(--ion-color-primary-contrast);
+          font-weight: bold;
+          height: 55px;
+          border-radius: 5px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: white;
+          font-size: 12pt;
+          margin-top: 24px;
+
+          &:disabled {
+            opacity: 0.5;
+          }
+        }
+      }
+
+      button {
+        outline: none;
+      }
+    }
+  }
+}

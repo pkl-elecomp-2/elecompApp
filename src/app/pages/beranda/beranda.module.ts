@@ -8,12 +8,17 @@ import { BerandaPageRoutingModule } from './beranda-routing.module';
 
 import { BerandaPage } from './beranda.page';
 
+import { ReactiveFormsModule } from '@angular/forms';
+import { RecaptchaModule } from 'ng-recaptcha';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    BerandaPageRoutingModule
+    BerandaPageRoutingModule,
+    ReactiveFormsModule,
+    RecaptchaModule,
   ],
   declarations: [BerandaPage]
 })
