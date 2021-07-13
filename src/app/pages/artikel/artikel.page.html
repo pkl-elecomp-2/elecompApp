@@ -1,9 +1,72 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>artikel</ion-title>
-  </ion-toolbar>
-</ion-header>
+<!-- <ion-header>
+    <ion-toolbar>
+      <ion-title>
+        Artikel
+      </ion-title>
+    </ion-toolbar>
+  </ion-header> -->
 
-<ion-content>
+  <ion-content>
+    <div class="c-top">
+      <div class="c-content"></div>
+      <div class="content">
+        <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+          <ion-refresher-content
+            pullingIcon="chevron-down-circle-outline"
+            pullingText="Pull to refresh"
+            refreshingSpinner="circles"
+            refreshingText="Refreshing..."
+          >
+          </ion-refresher-content>
+        </ion-refresher>
+        <div class="logo">Artikel</div>
+        <div><ion-icon name="alert-circle-outline" routerLink="/tentang"></ion-icon></div>
+        <!-- <div>
+            <ion-searchbar (ionInput)="FilterJSONData($artikel)"></ion-searchbar>
+          </div> -->
+      </div>
+    </div>
+  
+    <div class="c-galeri">
+      <div class="galeri">
+        <div
+          *ngFor="let data of getArtikel"
+          (click)="openDetail(data)"
+          class="judul"
+        >
+          <!-- <table>
+            <tr>
+              <th rowspan="4">
+                <img [src]="data.foto_artikel === '' || data.foto_artikel === null? 'assets/img/image.jpeg' : serverUrlAsset + data.foto_artikel">
+              </th>
+              <td><b>{{data.judul_artikel}}</b></td>
+            </tr>
+            <tr>
+              <td>Tanggal : {{data.tanggal_artikel}}</td>
+            </tr>
+            <tr>
+              <td>Dilihat : {{data.artikel_dilihat}}x</td>
+            </tr>
+          </table> -->
 
-</ion-content>
+          <ion-card>
+            <img [src]="data.foto_artikel === '' || data.foto_artikel === null ? 'assets/img/image.jpeg' : serverUrlAsset + data.foto_artikel">
+            <ion-card-header>
+              <div>
+                <ion-card-subtitle>{{data.tanggal_artikel}}</ion-card-subtitle>
+                <ion-card-subtitle>Dilihat : {{data.artikel_dilihat}}X</ion-card-subtitle>
+              </div>
+              <ion-card-title>{{data.judul_artikel}}</ion-card-title>
+            </ion-card-header>
+          
+            <ion-card-content>
+              <p>{{data.deskripsi_artikel}}</p>
+            </ion-card-content>
+          </ion-card>
+
+        </div>
+  
+      </div>
+    </div>
+  </ion-content>
+  
