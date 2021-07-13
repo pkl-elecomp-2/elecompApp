@@ -1,0 +1,103 @@
+:host {
+  ion-content {
+    --padding-start: 16px;
+    --padding-end: 16px;
+    --padding-top: 16px;
+    // --padding-bottom: 16px;
+
+    .c-top {
+      margin: -16px -16px 0px -16px;
+
+      .c-content {
+        height: 40px;
+        background: var(--ion-color-primary);
+      }
+      .content {
+        background: white;
+        margin: 0 16px;
+        // height: 50px;
+        border-radius: 10px;
+        box-shadow: 0 0 7px -2px rgba(0, 0, 0, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+        transform: translateY(-50%);
+
+        .logo {
+          flex: 1;
+        }
+
+        ion-icon {
+          font-size: 16pt;
+        }
+      }
+    }
+
+    .c-galeri {
+      padding-bottom: 20px;
+
+      .galeri {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 10px;
+
+        div {
+          //   background: var(--ion-color-primary-850);
+          //   height: 100px;
+          border-radius: 10px;
+          font-size: 10pt;
+
+          //   table {
+          //     margin: 15px;
+
+          //     th {
+          //       margin-right: 10px;
+          //       padding-right: 10px;
+          //     }
+          //   }
+
+          //   img {
+          //      width: 90px;
+          //      height: 50px;
+          //   }
+
+          ion-card {
+            background-color: var(--ion-color-primary-850);
+
+            ion-card-header {
+              div {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 2vh;
+              }
+
+              ion-card-title {
+                font-size: 1.5em;
+              }
+            }
+
+            ion-card-content {
+              p {
+                text-align: justify;
+                overflow: hidden;
+                // line-height: 2rem;
+                max-height: 8rem;
+                -webkit-box-orient: vertical;
+                display: block;
+                display: -webkit-box;
+                overflow: hidden !important;
+                text-overflow: ellipsis;
+                -webkit-line-clamp: 4;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+p {
+  font-size: 10pt;
+}

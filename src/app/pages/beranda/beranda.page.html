@@ -34,7 +34,7 @@
           routerLink="/tentang"
           src="https://elecompindonesia.com/locusid/assets/img/{{data.foto_slider}}"
         /> -->
-         <!-- <img [src]="data.foto_slider == '' || data.foto_slider == null? 'assets/img/image.jpeg' : serverUrlAsset + data.foto_slider"> -->
+         <img [src]="data.foto_slider === '' || data.foto_slider === null? 'assets/img/image.jpeg' : serverUrlAsset + data.foto_slider">
       </ion-slide>
     </ion-slides>
   </div>
@@ -50,7 +50,7 @@
           (click)="openDetailPromo(data)"
           src="https://elecompindonesia.com/locusid/assets/img/{{data.poster_promo}}"
         /> -->
-        <!-- <img (click)="openDetailPromo(data)" [src]="data.poster_promo == '' || data.poster_promo == null? 'assets/img/image.jpeg' : serverUrlAsset + data.poster_promo"> -->
+        <img (click)="openDetailPromo(data)" [src]="data.poster_promo === '' || data.poster_promo === null? 'assets/img/image.jpeg' : serverUrlAsset + data.poster_promo">
       </ion-slide>
     </ion-slides>
   </div>
@@ -66,7 +66,7 @@
           (click)="openDetailEvent(data)"
           src="https://elecompindonesia.com/locusid/assets/img/{{data.poster_event}}"
         /> -->
-        <!-- <img (click)="openDetailEvent(data)" [src]="data.poster_event == '' || data.poster_event == null? 'assets/img/image.jpeg' : serverUrlAsset + data.poster_event"> -->
+        <img (click)="openDetailEvent(data)" [src]="data.poster_event === '' || data.poster_event === null? 'assets/img/image.jpeg' : serverUrlAsset + data.poster_event">
       </ion-slide>
     </ion-slides>
   </div>
@@ -82,7 +82,7 @@
           (click)="openDetailGaleri(data)"
           src="https://elecompindonesia.com/locusid/assets/img/{{data.foto_galeri}}"
         /> -->
-        <!-- <img (click)="openDetailGaleri(data)" [src]="data.foto_galeri == '' || data.foto_galeri == null? 'assets/img/image.jpeg' : serverUrlAsset + data.foto_galeri"> -->
+        <img (click)="openDetailGaleri(data)" [src]="data.foto_galeri === '' || data.foto_galeri === null? 'assets/img/image.jpeg' : serverUrlAsset + data.foto_galeri">
       </div>
     </div>
   </div>
