@@ -1,0 +1,46 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Profil
+    </ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content>
+  <div class="c-top">
+    <div class="c-content">
+    </div>
+    <div class="content">
+      <div routerLink="/tab/profil">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </div>
+      <div class="logo">Login</div>
+      <!-- <div><ion-icon name="alert-circle-outline"></ion-icon></div> -->
+    </div>
+  </div>
+
+  <div class="c-login">
+    <div></div><br><br>
+    <div>Anda Belum Melakukan Login</div>
+    <div class="title"><b>Login</b></div>
+    <form>
+      <ion-item lines="none">
+        <ion-label color="dark" position="floating">Username</ion-label>
+        <ion-input type="text" name="username" [(ngModel)]="username" required></ion-input>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-label position="floating">Password</ion-label>
+        <ion-input type="password" name="password" [(ngModel)]="password" required></ion-input>
+      </ion-item><br>
+
+      <div>Lupa Password?</div>
+
+      <button type="submit" class="btn" [disabled]="!username || !password" (click)="onLogin()">
+        <div *ngIf="!isLoading">LOG IN</div>
+        <ion-spinner *ngIf="isLoading" color="white"></ion-spinner>
+      </button>
+      <br>
+    </form>
+  </div>
+</ion-content>

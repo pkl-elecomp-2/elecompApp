@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Storage } from '@ionic/storage-angular';
 
 @Component({
   selector: 'app-tab',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TabPage implements OnInit {
 
-  constructor() { }
+  constructor(private storage: Storage) { }
 
   ngOnInit() {
   }

@@ -1,9 +1,65 @@
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar>
-    <ion-title>profil</ion-title>
+    <ion-title>
+      Profil
+    </ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
 <ion-content>
+  <div class="c-top">
+    <div class="c-content"></div>
+    <div class="content">
+      <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content
+          pullingIcon="chevron-down-circle-outline"
+          pullingText="Pull to refresh"
+          refreshingSpinner="circles"
+          refreshingText="Refreshing..."
+        >
+        </ion-refresher-content>
+      </ion-refresher>
+      <div class="logo">
+        <img src="../../../assets/img/locus-logo.png" />
+      </div>
+      <div>
+        <ion-icon name="log-out-outline" routerLink="/login"></ion-icon>
+      </div>
+    </div>
+  </div>
 
+  <div class="c-login">
+    <br /><br /><br /><br /><br /><br />
+    <div class="member"><img src="././assets/img/team-1.jpg" /><br /></div>
+  </div>
+  <br /><br /><br /><br /><br />
+
+  <ion-list>
+    <ion-item>
+      <ion-label
+        ><h1><b>Steven Jordan</b></h1></ion-label
+      >
+    </ion-item>
+  </ion-list>
+
+  <div class="c-galeri">
+    <div class="galeri">
+      <!-- <div>
+        <a routerLink="/menu-member">
+          <img
+            src="././assets/img/member.png"
+            style="width: 40px; height: 50px" /></a
+        ><br />
+        <p style="font-size: 9pt">Daftar Member</p>
+      </div>
+      <div>
+        <a routerLink="/setting">
+          <img
+            src="././assets/img/settings.png"
+            style="width: 40px; height: 50px" /></a
+        ><br />
+        <p style="font-size: 9pt">Ubah Profil</p>
+      </div> -->
+    </div>
+  </div>
 </ion-content>
