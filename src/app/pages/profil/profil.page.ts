@@ -12,4 +12,8 @@ export class ProfilPage implements OnInit {
   ngOnInit() {
   }
 
+  doRefresh(event) {
+    console.log('Begin async operation');
+      event.target.complete();
+  }
 }

@@ -4,6 +4,7 @@ import { ArtikelService } from 'src/app/services/artikel.service';
 import { AlertController } from '@ionic/angular';
 import { NgZone } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-artikel',
@@ -25,14 +26,16 @@ export class ArtikelPage implements OnInit {
     public loadingController: LoadingController,
     public alertController: AlertController,
     private router: Router,
-    private zone: NgZone
+    private zone: NgZone,
+    private storage: Storage
   ) { }
 
-  ngOnInit() {
+  async ngOnInit() {
   }
 
   ionViewWillEnter() {
     this.dataArtikel();
+    // console.log(this.storage.get('currentUser'));
   };
 
   async dataArtikel() {
@@ -44,7 +47,7 @@ export class ArtikelPage implements OnInit {
     await this.api.getArticle('getArtikel').subscribe(
       (res) => {
         this.responseData = res;
-        console.log(res);
+        // console.log(res);
         if (this.responseData.getArtikel) {
           this.getArtikel = this.responseData.getArtikel;
           loading.dismiss();

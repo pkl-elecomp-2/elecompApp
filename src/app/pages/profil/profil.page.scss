@@ -1,0 +1,107 @@
+:host {
+  ion-content {
+    --padding-start: 16px;
+    --padding-end: 16px;
+    --padding-top: 16px;
+    // --padding-bottom: 16px;
+
+    .c-top {
+      margin: -16px -16px 0px -16px;
+
+      .c-content {
+        height: 40px;
+        background: var(--ion-color-primary);
+      }
+      .content {
+        background: white;
+        margin: 0 16px;
+        // height: 50px;
+        border-radius: 10px;
+        box-shadow: 0 0 7px -2px rgba(0, 0, 0, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+        transform: translateY(-50%);
+
+        .logo {
+          flex: 1;
+
+          img {
+            height: 20px;
+            padding-top: 1px;
+            padding-left: 5px;
+          }
+        }
+
+        ion-icon {
+          font-size: 16pt;
+        }
+      }
+    }
+
+    .c-login {
+      margin: -16px;
+      margin-top: -45px;
+      background: var(--ion-color-primary);
+      // padding: 16px;
+      text-align: center;
+
+      .member {
+        background: var(--ion-color-primary);
+        height: 10px;
+        // border-radius: 50px;
+        // box-shadow: 0 0 7px -2px rgba(0, 0, 0, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+        // transform: translateY(-50%);
+      }
+
+      img {
+        height: 150px;
+      }
+    }
+
+    .c-galeri {
+      padding-top: 0px;
+      padding-bottom: 20px;
+
+      .galeri {
+        height: 210px;
+        justify-items: center;
+        align-items: center;
+        padding-left: 30px;
+        padding-right: 30px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 10px;
+
+        div {
+          background: var(--ion-color-primary-850);
+          width: 100px;
+          height: 100px;
+          padding-top: 10px;
+          text-align: center;
+          border-radius: 10px;
+          font-size: 10pt;
+
+          table {
+            margin: 15px;
+
+            th {
+              margin-right: 10px;
+              padding-right: 10px;
+            }
+          }
+
+          img {
+            width: 90px;
+            height: 50px;
+          }
+        }
+      }
+    }
+  }
+}
