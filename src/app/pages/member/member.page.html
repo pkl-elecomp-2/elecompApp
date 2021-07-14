@@ -29,25 +29,20 @@
   
     <div class="c-galeri">
       <div class="galeri">
-        <ion-searchbar placeholder="Pencarian" [(ngModel)]="textCari" (ionInput)="cariOnInput()" (ionCancel)="cariOnCancel()" (keypress)="inputPress($event)"></ion-searchbar>
+      <ion-searchbar placeholder="Pencarian" [(ngModel)]="textCari" (ionInput)="cariOnInput()" (ionCancel)="cariOnCancel()" (keypress)="inputPress($event)"></ion-searchbar>
       <ion-item button *ngFor="let item of (results | async)" [routerLink]="['/', 'listmember', item.id_member]">
       {{item.nama_member}}
       </ion-item>
       <div *ngFor="let data of getMemberUI" (click)="openDetail(data)">
-        <table>
-          <tr>
-            <th rowspan="2">
-             <!--  <img
-                src="https://elecompindonesia.com/locusid/assets/img/{{data.foto_kta}}"
-              /> -->
-              <img [src]="data.foto_kta === '' || data.foto_kta === null ? 'assets/img/image.jpeg' : serverUrlAsset + data.foto_kta">
-            </th>
-            <td><b>{{data.nama_member}}</b></td>
-          </tr>
-          <tr>
-            <td></td>
-          </tr>
-        </table>
+        <ion-card>
+          <!-- <ion-avatar> -->
+            <img [src]="data.foto_kta === '' || data.foto_kta === null? 'assets/img/image.jpeg' : serverUrlAsset + data.foto_kta">
+          <!-- </ion-avatar> -->
+          <ion-card-header>
+              <h3>{{data.nama_member}}</h3>
+              <p>{{data.profesi_member}}</p>
+          </ion-card-header>
+        </ion-card>
       </div>
       </div>
     </div>

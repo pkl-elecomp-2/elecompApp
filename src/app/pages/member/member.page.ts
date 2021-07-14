@@ -40,6 +40,21 @@ export class MemberPage implements OnInit {
     this.dataMember();
   }
 
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: 'Alert',
+      subHeader: 'Subtitle',
+      message: 'This is an alert message.',
+      buttons: ['OK']
+    });
+
+    await alert.present();
+
+    const { role } = await alert.onDidDismiss();
+    console.log('onDidDismiss resolved with role', role);
+  }
+
   async dataMember() {
     const loading = await this.loadingController.create({
       spinner: 'dots',

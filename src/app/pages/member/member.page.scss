@@ -26,7 +26,7 @@
 
         .logo {
           flex: 1;
-          text-align: center;
+          //   text-align: center;
         }
 
         ion-icon {
@@ -44,24 +44,47 @@
         grid-gap: 10px;
 
         div {
-          background: var(--ion-color-primary-850);
-          height: 100px;
+          //   background: var(--ion-color-primary-850);
+          //   height: 100px;
           border-radius: 10px;
           font-size: 10px;
 
-          table {
-            margin: 15px;
+          //   table {
+          //     margin: 15px;
 
-            th {
-              margin-right: 10px;
-              padding-right: 20px;
-              padding-bottom: 20px;
+          //     th {
+          //       margin-right: 10px;
+          //       padding-right: 20px;
+          //       padding-bottom: 20px;
+          //     }
+          //   }
+
+          //   img {
+          //     width: 50px;
+          //     height: 50px;
+          //   }
+
+          ion-card {
+            border: "1px solid #d7d8da";
+            border-radius: "7.5px";
+            // display: flex;
+
+            ion-avatar {
+              img {
+                height: 10vw;
+              }
             }
-          }
 
-          img {
-            width: 50px;
-            height: 50px;
+            ion-card-header {
+              h3 {
+                // padding-left: 20px;
+                text-align: center;
+              }
+              p {
+                text-align: center;
+                padding-left: 0;
+              }
+            }
           }
         }
       }
