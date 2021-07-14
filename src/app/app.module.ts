@@ -11,7 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 
 // Auth Guard
-import { AuthGuard } from './pages/guard/auth.guard';
+import { AuthGuard } from './guard/auth.guard';
 
 // local storage
 import { IonicStorageModule } from '@ionic/storage-angular';

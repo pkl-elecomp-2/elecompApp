@@ -1,0 +1,38 @@
+<ion-content>
+  <div class="c-top">
+    <div class="c-content"></div>
+    <div class="content">
+      <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content
+          pullingIcon="chevron-down-circle-outline"
+          pullingText="Pull to refresh"
+          refreshingSpinner="circles"
+          refreshingText="Refreshing..."
+        >
+        </ion-refresher-content>
+      </ion-refresher>
+      <div routerLink="/tab/artikel">
+        <ion-icon color="primary" name="arrow-back-outline"></ion-icon>
+      </div>
+      <div class="logo">Artikel</div>
+    </div>
+  </div>
+
+  <div class="body-content ion-padding">
+    <ion-label>
+      <p>{{datadetail.tanggal_artikel}}</p>
+      <p>dilihat {{datadetail.artikel_dilihat}}x</p>
+    </ion-label>
+    <h2>{{datadetail.judul_artikel}}</h2>
+    <img [src]="datadetail.foto_artikel === '' || datadetail.foto_artikel === null? 'assets/img/image.jpeg' : serverUrlAsset + datadetail.foto_artikel">
+    <ion-text>
+      <p>{{datadetail.deskripsi_artikel}}</p>
+    </ion-text>
+    <ion-label class="createdBy">
+        <p>Penulis :</p>
+        <p>Fajar Ali <br>
+          Dosen Universitas
+        </p>
+    </ion-label>
+  </div>
+</ion-content>

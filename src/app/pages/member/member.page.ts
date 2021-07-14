@@ -49,7 +49,7 @@ export class MemberPage implements OnInit {
     await this.api.getData('getMember').subscribe(
       (res) => {
         this.responseData = res;
-        console.log(res);
+        // console.log(res);
 
         if (this.responseData.getMember) {
           this.getMember = this.responseData.getMember;
