@@ -44,12 +44,20 @@ export class LoginPage implements OnInit {
       // console.log(response);
       this.storage.set('currentUser', response);
       this.presentToast(response.messages);
-      this.router.navigate(['tab/profil']);
+      // this.router.navigate(['tab/profil']);
+      this.reloadCurrentRoute();
       this.username = '';
       this.password = '';
     }, error => {
       console.log(error);
       this.presentToast(error);
+    });
+  }
+
+  reloadCurrentRoute() {
+    const currentUrl = 'tab/profil';
+    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+        this.router.navigate([currentUrl]);
     });
   }
 

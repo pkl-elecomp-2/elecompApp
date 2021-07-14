@@ -1,3 +1,4 @@
+/* eslint-disable arrow-body-style */
 import { Injectable, OnInit } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { AlertController } from '@ionic/angular';
@@ -6,24 +7,25 @@ import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from
 @Injectable()
 export class AuthGuard implements CanActivate {
 
-    constructor(private router: Router, private storage: Storage, private alertController: AlertController) {}
+    checkUser;
+
+    constructor(private router: Router, private storage: Storage, private alertController: AlertController) {
+    }
 
     async canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-        if (await this.storage.get('currentUser') !== '' && this.storage.get('currentUser') !== null) {
+
+        // eslint-disable-next-line max-len
+        if (await this.storage.get('currentUser') !== '' && this.storage.get('currentUser') !== null ) {
             // logged in so return true
-            // this.storage.get('currentUser').then((val) => {
-            //     this.presentAlert(val);
-            // });
             return true;
         }
 
         // not logged in so redirect to login page with the return url
-        this.presentAlert('Anda belum login', state.url);
-        // this.router.navigate([''], { queryParams: { returnUrl: state.url }});
+        this.presentAlert('Anda belum login');
         return false;
     }
 
-    async presentAlert(value, stateUrl) {
+    async presentAlert(value) {
         const alert = await this.alertController.create({
           cssClass: 'my-custom-class',
           header: 'Alert',

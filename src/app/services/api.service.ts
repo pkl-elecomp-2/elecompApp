@@ -21,7 +21,7 @@ export class ApiService {
    }
 
   getData(type: any): Observable<any> {
-    console.log(type);
+    // console.log(type);
     return this.http.get(`${this.serverUrl}/${type}`);
   }
 
