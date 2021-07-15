@@ -13,7 +13,7 @@ import { Storage } from '@ionic/storage';
 })
 export class ArtikelPage implements OnInit {
 
-  responseData: any;
+  response: any;
   getArtikel: any;
   getMember: any;
   jsonData: any = [];
@@ -46,10 +46,10 @@ export class ArtikelPage implements OnInit {
     await loading.present();
     await this.api.getArticle('getArtikel').subscribe(
       (res) => {
-        this.responseData = res;
+        this.response = res;
         // console.log(res);
-        if (this.responseData.getArtikel) {
-          this.getArtikel = this.responseData.getArtikel;
+        if (this.response.getArtikel) {
+          this.getArtikel = this.response.getArtikel;
           loading.dismiss();
         } else {
           this.getArtikel = '';
