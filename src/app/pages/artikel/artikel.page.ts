@@ -47,9 +47,10 @@ export class ArtikelPage implements OnInit {
     await this.api.getArticle('getArtikel').subscribe(
       (res) => {
         this.response = res;
-        // console.log(res);
+        console.log(res);
         if (this.response.getArtikel) {
           this.getArtikel = this.response.getArtikel;
+          console.log('Masuk sini');
           loading.dismiss();
         } else {
           this.getArtikel = '';
