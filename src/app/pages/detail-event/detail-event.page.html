@@ -1,0 +1,33 @@
+<ion-content>
+  <div class="c-top">
+    <div class="c-content"></div>
+    <div class="content">
+      <div routerLink="/tab">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </div>
+      <div class="logo">Event</div>
+    </div>
+  </div>
+
+  <div class="c-top2">
+    <div class="content2">
+      <div class="logo">
+        <b>{{datadetail.judul_event}}</b><br />
+        <img
+          src="https://elecompindonesia.com/locus/assets/img/{{datadetail.poster_event}}"
+        /><br />
+      </div>
+      <p>
+        <ion-icon name="calendar-outline"></ion-icon>
+        20-10-2020<br />
+        <ion-icon name="time-outline"></ion-icon>
+        {{datadetail.jam_event}}<br /><br />
+        Deskripsi : <br><br>
+        {{datadetail.deskripsi_event}}
+      </p>
+      <br />
+    </div>
+  </div>
+
+  <div class="c-top3"></div>
+</ion-content>

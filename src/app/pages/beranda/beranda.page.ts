@@ -167,7 +167,7 @@ export class BerandaPage implements OnInit {
         idpromo: idPromo,
       },
     };
-    this.router.navigate(['homedetailpromo'], navExtras);
+    this.router.navigate(['detailpromo'], navExtras);
   }
 
   async dataEvent() {
@@ -200,7 +200,7 @@ export class BerandaPage implements OnInit {
         idevent: idEvent,
       },
     };
-    this.router.navigate(['homedetailevent'], navExtras);
+    this.router.navigate(['detailevent'], navExtras);
   }
 
   async dataGaleri() {
@@ -233,13 +233,13 @@ export class BerandaPage implements OnInit {
         idgaleri: idGaleri,
       },
     };
-    this.router.navigate(['homedetailgaleri'], navExtras);
+    this.router.navigate(['detailgaleri'], navExtras);
   }
 
   survey() {
     this.api.postData('Input_Survey',this.formSubmit.value)
     .subscribe(res => {
-        this.navController.navigateBack('/tabs');
+        this.navController.navigateBack('/tab');
       }, (err) => {
         console.log(err);
       });

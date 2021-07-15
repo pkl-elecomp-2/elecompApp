@@ -1,0 +1,31 @@
+<ion-content>
+  <div class="c-top">
+    <div class="c-content"></div>
+    <div class="content">
+      <div routerLink="/tab">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </div>
+      <div class="logo">Promo</div>
+    </div>
+  </div>
+
+  <div class="c-top2">
+    <div class="content2">
+      <div class="logo">
+        <b>{{datadetail.judul_promo}}</b><br />
+        <img
+          src="https://elecompindonesia.com/locus/assets/img/{{datadetail.poster_promo}}"
+        /><br />
+      </div>
+      <br>
+      <div class="promo"><ion-icon name="calendar-outline"></ion-icon> 17-09-2020 s.d. 19-09-2020</div>
+      <br>
+      Deskripsi <br><br>
+      {{datadetail.deskripsi_promo}}
+      <br />
+      
+    </div>
+  </div>
+
+  <div class="c-top3"></div>
+</ion-content>
