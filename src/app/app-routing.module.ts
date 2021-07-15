@@ -37,6 +37,14 @@ const routes: Routes = [
   {
     path: 'listgaleri',
     loadChildren: () => import('./pages/list-galeri/list-galeri.module').then( m => m.ListGaleriPageModule)
+  },
+  {
+    path: 'detailmember',
+    loadChildren: () => import('./pages/detail-member/detail-member.module').then( m => m.DetailMemberPageModule)
+  },
+  {
+    path: 'tentang',
+    loadChildren: () => import('./pages/tentang/tentang.module').then( m => m.TentangPageModule)
   }
 ];
 

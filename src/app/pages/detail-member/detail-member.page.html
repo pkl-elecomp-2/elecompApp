@@ -1,0 +1,30 @@
+<ion-content>
+  <div class="c-top">
+    <div class="c-content"></div>
+    <div class="content">
+      <div>
+        <div routerLink="/tab/member">
+          <ion-icon name="arrow-back-outline"></ion-icon>
+        </div>
+      </div>
+      <div class="logo">Member</div>
+    </div>
+  </div>
+
+  <div class="c-top2">
+    <div class="content2">
+      <div class="logo">
+        <b> {{datadetail.nama_member}} </b><br />
+        <!-- <img
+          src="https://elecompindonesia.com/locusid/assets/img/{{datadetail.foto_kta}}"
+        /> -->
+        <img [src]="datadetail.foto_kta === '' || datadetail.foto_kta === null? 'assets/img/image.jpeg' : serverUrlAsset + datadetail.foto_kta">
+        <br />
+      </div>
+      <p>{{datadetail.profesi_member}}</p>
+      <br />
+    </div>
+  </div>
+
+  <div class="c-top3"></div>
+</ion-content>
