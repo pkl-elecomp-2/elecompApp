@@ -12,6 +12,7 @@ export class DetailArtikelPage implements OnInit {
   private dataDetail: any;
   private detail: any;
 
+  // eslint-disable-next-line @typescript-eslint/member-ordering
   serverUrlAsset = this.api.serverUrlAsset;
 
   constructor(private act: ActivatedRoute, private router: Router, public api: ArtikelService) {
