@@ -9,21 +9,21 @@ import { ArtikelService } from 'src/app/services/artikel.service';
 })
 export class DetailArtikelPage implements OnInit {
 
-  datadetail: any;
-  detail2: any;
+  private dataDetail: any;
+  private detail: any;
 
   serverUrlAsset = this.api.serverUrlAsset;
 
-  constructor(private act: ActivatedRoute, private rtr: Router, public api: ArtikelService) {
-    if (this.rtr.getCurrentNavigation()) {
-      this.datadetail = this.rtr.getCurrentNavigation().extras.state.artikel;
+  constructor(private act: ActivatedRoute, private router: Router, public api: ArtikelService) {
+    if (this.router.getCurrentNavigation()) {
+      this.dataDetail = this.router.getCurrentNavigation().extras.state.artikel;
     }
-    console.log(this.datadetail);
+    console.log(this.dataDetail);
 
-    if (this.rtr.getCurrentNavigation()) {
-      this.detail2 = this.rtr.getCurrentNavigation().extras.state.member;
+    if (this.router.getCurrentNavigation()) {
+      this.detail = this.router.getCurrentNavigation().extras.state.member;
     }
-    console.log(this.detail2);
+    console.log(this.detail);
   }
 
   ngOnInit() {}

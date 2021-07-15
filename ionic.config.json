@@ -1,5 +1,7 @@
 {
   "name": "elecompApp",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "angular"
 }
