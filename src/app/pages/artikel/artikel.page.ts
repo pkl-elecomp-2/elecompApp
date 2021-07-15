@@ -82,7 +82,7 @@ export class ArtikelPage implements OnInit {
 
     this.api.updateCountArticle(dataUpdate)
     .then(res => {
-      this.router.navigate(['detailArtikel'], navExtras);
+      this.router.navigate(['detailartikel'], navExtras);
      // console.log('Content updated successfully!');
     }, (error) => {
       console.log(error);

@@ -11,8 +11,32 @@ const routes: Routes = [
     loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
   },
   {
-    path: 'detailArtikel',
+    path: 'detailartikel',
     loadChildren: () => import('./pages/detail-artikel/detail-artikel.module').then( m => m.DetailArtikelPageModule)
+  },
+  {
+    path: 'detailpromo',
+    loadChildren: () => import('./pages/detail-promo/detail-promo.module').then( m => m.DetailPromoPageModule)
+  },
+  {
+    path: 'listpromo',
+    loadChildren: () => import('./pages/list-promo/list-promo.module').then( m => m.ListPromoPageModule)
+  },
+  {
+    path: 'detailevent',
+    loadChildren: () => import('./pages/detail-event/detail-event.module').then( m => m.DetailEventPageModule)
+  },
+  {
+    path: 'listevent',
+    loadChildren: () => import('./pages/list-event/list-event.module').then( m => m.ListEventPageModule)
+  },
+  {
+    path: 'detailgaleri',
+    loadChildren: () => import('./pages/detail-galeri/detail-galeri.module').then( m => m.DetailGaleriPageModule)
+  },
+  {
+    path: 'listgaleri',
+    loadChildren: () => import('./pages/list-galeri/list-galeri.module').then( m => m.ListGaleriPageModule)
   }
 ];
 
