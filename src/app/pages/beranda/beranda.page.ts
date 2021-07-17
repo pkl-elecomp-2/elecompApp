@@ -41,17 +41,13 @@ export class BerandaPage implements OnInit {
   promoSlide = {
     speed: 400,
     spaceBetween: 10,
-    slidesPerView: 3.5,
-    // centeredSlides: true,
-    // loop: true
+    slidesPerView: 3.5
   };
 
   eventSlide = {
     speed: 400,
     spaceBetween: 10,
-    slidesPerView: 3.5,
-    // centeredSlides: true,
-    // loop: true
+    slidesPerView: 3.5
   };
 
   serverUrlAsset: string;
@@ -80,10 +76,6 @@ export class BerandaPage implements OnInit {
   }
 
   ngOnInit() {
-    // this.dataSlider();
-    // this.dataPromo();
-    // this.dataEvent();
-    // this.dataGaleri();
   }
 
   ionViewWillEnter() {
@@ -247,8 +239,6 @@ export class BerandaPage implements OnInit {
   }
 
   doRefresh(event) {
-    console.log('Begin async operation');
-
     this.api.getData('getSlider').subscribe((res) => {
       this.responseData = res;
       event.target.complete();

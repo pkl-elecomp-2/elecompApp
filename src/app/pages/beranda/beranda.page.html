@@ -1,10 +1,3 @@
-<!-- <ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
-  </ion-toolbar>
-</ion-header> -->
 <ion-content>
   <div class="c-top">
     <div class="c-content"></div>
@@ -19,7 +12,7 @@
         </ion-refresher-content>
       </ion-refresher>
       <div class="logo">
-        <img src="../../../assets/img/locus-logo.png" />
+        <img src="../../../assets/img/logo.jpg" />
       </div>
       <div>
         <ion-icon name="alert-circle-outline" routerLink="/tentang"></ion-icon>
@@ -30,10 +23,6 @@
   <div class="c-banner">
     <ion-slides pager="true" [options]="bannerSlide" *ngIf="getSlider">
       <ion-slide *ngFor="let data of getSlider">
-       <!--  <img
-          routerLink="/tentang"
-          src="https://elecompindonesia.com/locusid/assets/img/{{data.foto_slider}}"
-        /> -->
          <img [src]="data.foto_slider === '' || data.foto_slider === null? 'assets/img/image.jpeg' : serverUrlAsset + data.foto_slider">
       </ion-slide>
     </ion-slides>
@@ -107,7 +96,7 @@
 
       <ion-item lines="none">
         <ion-label position="floating">No. Telepon</ion-label>
-        <ion-input type="text" formControlName="noTlp" [(ngModel)]="noTlp" required></ion-input>
+        <ion-input type="text" formControlName="noTlp" [(ngModel)]="noWa" required></ion-input>
       </ion-item>
 
       <ion-item lines="none">
