@@ -1,3 +1,4 @@
+import { ToastService } from './../../services/toast.service';
 import { Component, OnInit } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { Router } from '@angular/router';
@@ -11,16 +12,20 @@ export class ProfilPage implements OnInit {
 
   username: any;
 
-  constructor(private storage: Storage, private router: Router) { }
+  constructor(
+    private storage: Storage, 
+    private router: Router,
+    private toastService: ToastService
+  ) { }
 
   ionViewWillEnter() {
+    // Check if the user is logged in
     this.storage.get('user').then((value) => {
-      this.username = (value != "") ? value : 'Guest';
+      this.username = (value == null || value == '') ? 'Guest' : value;
     });
   };
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   checkIcon() {
     if(this.username != "Guest") {
@@ -31,11 +36,13 @@ export class ProfilPage implements OnInit {
   }
 
   logOut() {
-    this.storage.set('user', '');
-    this.reloadCurrentRoute();
+    this.storage.set('user', '').then(() => {
+      this.toastService.showSuccess('You have been logged out');
+    });
+    this.redirect();
   }
 
-  reloadCurrentRoute() {
+  private redirect() {
     const currentUrl = 'tab/profil';
     this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
         this.router.navigate([currentUrl]);

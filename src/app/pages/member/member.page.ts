@@ -1,3 +1,4 @@
+import { Storage } from '@ionic/storage-angular';
 import { Component, OnInit } from '@angular/core';
 import { LoadingController } from '@ionic/angular';
 import { ApiService } from 'src/app/services/api.service';
@@ -6,6 +7,7 @@ import { NgZone } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
 import { Observable } from 'rxjs';
 import { ListmemberService, SearchType } from 'src/app/services/listmember.service';
+import { ToastService } from 'src/app/services/toast.service';
 
 @Component({
   selector: 'app-member',
@@ -29,14 +31,23 @@ export class MemberPage implements OnInit {
     public loadingController: LoadingController,
     public alertController: AlertController,
     private router: Router,
+    private storage: Storage,
     private zone: NgZone,
+    private toastService: ToastService,
     private listmemberService: ListmemberService
   ) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   ionViewWillEnter() {
+    // Check if user is logged in
+    this.storage.get('user').then((value) => {
+      if (value == '' || value == null) {
+        this.toastService.showWarning('Please login first');
+        this.router.navigateByUrl('/login');
+      }
+    });
+    // Load data Member
     this.dataMember();
   }
 

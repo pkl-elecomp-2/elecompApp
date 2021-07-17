@@ -1,3 +1,4 @@
+import { ToastService } from './../../services/toast.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
@@ -16,7 +17,7 @@ export class LoginPage implements OnInit {
 
   constructor(
     private http: HttpClient,
-    private toastController: ToastController,
+    private toastService: ToastService,
     private storage: Storage,
     private router: Router,
   ) { }
@@ -33,11 +34,11 @@ export class LoginPage implements OnInit {
     // .set('userPassword', this.password);
     
     if (this.username == "elecomp" && this.password == "elecomp123") {
-      this.presentToast('Login Success', 'success');
+      this.toastService.showSuccess("Login Successful");
       this.reloadCurrentRoute();
       this.storage.set('user', this.username);      
     } else {
-      this.presentToast('Login Failed', 'fail');
+      this.toastService.showError("Login Failed: Invalid Username or Password");
     }
 
     // return this.http.post('http://localhost:8080/login', params, {headers}).subscribe((response: any) => {
@@ -50,25 +51,6 @@ export class LoginPage implements OnInit {
     //   console.log(error);
     //   this.presentToast(error);
     // });
-  }
-
-  // Show the status when Login
-  private async presentToast(msg: string, status: string) {
-    let toast = (status == "success") ?
-      await this.toastController.create({
-        message: msg,
-        duration: 2000,
-        color: "success",
-        buttons: ['Ok']
-      }) :
-      await this.toastController.create({
-        message: msg,
-        duration: 2000,
-        color: "danger",
-        buttons: ['Ok']
-      });
-    
-    toast.present();
   }
 
   // When Login success redirect to
