@@ -31,11 +31,11 @@ export class LoginPage implements OnInit {
     // const params = new HttpParams()
     // .set('userEmail', this.username)
     // .set('userPassword', this.password);
-
-    console.log(`username ${this.username} | pwd ${this.password}`);
     
-    if (this.username == "rudi" && this.password == "123") {
-      this.presentToast('Login Success', 'success');      
+    if (this.username == "elecomp" && this.password == "elecomp123") {
+      this.presentToast('Login Success', 'success');
+      this.reloadCurrentRoute();
+      this.storage.set('user', this.username);      
     } else {
       this.presentToast('Login Failed', 'fail');
     }

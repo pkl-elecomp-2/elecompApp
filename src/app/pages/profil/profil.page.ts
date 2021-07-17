@@ -14,9 +14,8 @@ export class ProfilPage implements OnInit {
   constructor(private storage: Storage, private router: Router) { }
 
   ionViewWillEnter() {
-    this.storage.get('currentUser').then((value) => {
-      this.username = value ? value.data.user_name : '';
-      // console.log(value.data.user_name);
+    this.storage.get('user').then((value) => {
+      this.username = (value != "") ? value : 'Guest';
     });
   };
 
@@ -24,7 +23,7 @@ export class ProfilPage implements OnInit {
   }
 
   checkIcon() {
-    if(this.username) {
+    if(this.username != "Guest") {
       return true;
     } else {
       return false;
@@ -32,7 +31,7 @@ export class ProfilPage implements OnInit {
   }
 
   logOut() {
-    this.storage.set('currentUser', '');
+    this.storage.set('user', '');
     this.reloadCurrentRoute();
   }
 
