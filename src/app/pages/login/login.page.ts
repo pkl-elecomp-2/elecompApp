@@ -21,44 +21,61 @@ export class LoginPage implements OnInit {
     private router: Router,
   ) { }
 
-  ngOnInit() {
+  ngOnInit() { }
+
+  // Login
+  onLogin() {
+    // const headers = new HttpHeaders()
+    // .set('Content-Type', 'application/x-www-form-urlencoded');
+
+    // const params = new HttpParams()
+    // .set('userEmail', this.username)
+    // .set('userPassword', this.password);
+
+    console.log(`username ${this.username} | pwd ${this.password}`);
+    
+    if (this.username == "rudi" && this.password == "123") {
+      this.presentToast('Login Success', 'success');      
+    } else {
+      this.presentToast('Login Failed', 'fail');
+    }
+
+    // return this.http.post('http://localhost:8080/login', params, {headers}).subscribe((response: any) => {
+    //   this.storage.set('currentUser', response);
+    //   this.presentToast(response.messages);
+    //   this.reloadCurrentRoute();
+    //   this.username = '';
+    //   this.password = '';
+    // }, error => {
+    //   console.log(error);
+    //   this.presentToast(error);
+    // });
   }
 
-  async presentToast(msg: string) {
-    const toast = await this.toastController.create({
-      message: msg,
-      duration: 2000
-    });
+  // Show the status when Login
+  private async presentToast(msg: string, status: string) {
+    let toast = (status == "success") ?
+      await this.toastController.create({
+        message: msg,
+        duration: 2000,
+        color: "success",
+        buttons: ['Ok']
+      }) :
+      await this.toastController.create({
+        message: msg,
+        duration: 2000,
+        color: "danger",
+        buttons: ['Ok']
+      });
+    
     toast.present();
   }
 
-  onLogin() {
-    const headers = new HttpHeaders()
-    .set('Content-Type', 'application/x-www-form-urlencoded');
-
-    const params = new HttpParams()
-    .set('userEmail', this.username)
-    .set('userPassword', this.password);
-
-    return this.http.post('http://localhost:8080/login', params, {headers}).subscribe((response: any) => {
-      // console.log(response);
-      this.storage.set('currentUser', response);
-      this.presentToast(response.messages);
-      // this.router.navigate(['tab/profil']);
-      this.reloadCurrentRoute();
-      this.username = '';
-      this.password = '';
-    }, error => {
-      console.log(error);
-      this.presentToast(error);
-    });
-  }
-
-  reloadCurrentRoute() {
-    const currentUrl = 'tab/profil';
+  // When Login success redirect to
+  private reloadCurrentRoute() {
+    const currentUrl = 'tab/profile';
     this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
         this.router.navigate([currentUrl]);
     });
   }
-
 }

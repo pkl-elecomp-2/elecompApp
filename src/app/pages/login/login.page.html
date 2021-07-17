@@ -1,46 +1,60 @@
-<!-- <ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Profil
-    </ion-title>
-  </ion-toolbar>
-</ion-header> -->
-
 <ion-content>
-  <div class="c-top">
-    <div class="c-content">
-    </div>
-    <div class="content">
+  <div class="header">
+    <div class="header-background"></div>
+    <div class="header-content">
       <div routerLink="/tab/profil">
         <ion-icon name="arrow-back-outline"></ion-icon>
       </div>
-      <div class="logo">Login</div>
-      <!-- <div><ion-icon name="alert-circle-outline"></ion-icon></div> -->
+      <div class="title">
+        <b>Login</b>
+      </div>
     </div>
   </div>
 
-  <div class="c-login">
-    <div></div><br><br>
-    <div>Anda Belum Melakukan Login</div>
-    <div class="title"><b>Login</b></div>
+  <div class="content">
+    <div class="space"></div>
     <form>
       <ion-item lines="none">
         <ion-label color="dark" position="floating">Username</ion-label>
-        <ion-input type="text" name="username" [(ngModel)]="username" required></ion-input>
+        <ion-input
+          type="text"
+          name="username"
+          [(ngModel)]="username"
+          required>
+        </ion-input>
       </ion-item>
 
       <ion-item lines="none">
         <ion-label position="floating">Password</ion-label>
-        <ion-input type="password" name="password" [(ngModel)]="password" required></ion-input>
-      </ion-item><br>
+        <ion-input
+          type="password"
+          name="password"
+          [(ngModel)]="password"
+          required>
+        </ion-input>
+      </ion-item>
 
-      <div>Lupa Password?</div>
+      <div class="space"></div>
 
-      <button type="submit" class="btn" [disabled]="!username || !password" (click)="onLogin()">
-        <div *ngIf="!isLoading">LOG IN</div>
-        <ion-spinner *ngIf="isLoading" color="white"></ion-spinner>
-      </button>
-      <br>
+      <ion-button
+        expand="block"
+        type="submit"
+        (click)="onLogin()"
+        mode="ios"
+        color="success">
+        Sign In
+      </ion-button>
+      <!-- <div *ngIf="!isLoading">Sign In</div> -->
     </form>
+
+    <ion-button
+        expand="block"
+        routerLink="/register"
+        routerDirection="forward"
+        mode="ios"
+        color="danger">
+        Sign Up
+    </ion-button>
+
   </div>
 </ion-content>

@@ -3,19 +3,18 @@
     --padding-start: 16px;
     --padding-end: 16px;
     --padding-top: 16px;
-    // --padding-bottom: 16px;
+    --background: var(--ion-color-primary);
 
-    .c-top {
+    // Header
+    .header {
       margin: -16px -16px 0px -16px;
 
-      .c-content {
+      .header-background {
         height: 40px;
-        background: var(--ion-color-primary);
       }
-      .content {
-        background: white;
+      .header-content {
+        background: white; // Background Input
         margin: 0 16px;
-        // height: 50px;
         border-radius: 10px;
         box-shadow: 0 0 7px -2px rgba(0, 0, 0, 0.2);
         display: flex;
@@ -24,7 +23,7 @@
         padding: 10px;
         transform: translateY(-50%);
 
-        .logo {
+        .title {
           flex: 1;
           text-align: center;
         }
@@ -35,50 +34,27 @@
       }
     }
 
-    .c-login {
+    // Content
+    .content {
       margin: -16px;
       margin-top: -45px;
-      background: var(--ion-color-primary);
       padding: 16px;
       text-align: center;
 
-      .title {
+      .space {
         padding-top: 100px;
         padding-bottom: 10px;
       }
 
       form {
-        margin-top: 10px;
         flex: 1;
         display: flex;
         flex-direction: column;
-        padding-bottom: 60px;
 
         ion-item {
           --border-radius: 5px;
           margin-top: 10px;
         }
-
-        .btn {
-          background: black;
-          font-weight: bold;
-          height: 55px;
-          border-radius: 5px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          color: white;
-          font-size: 12pt;
-          margin-top: 100px;
-
-          &:disabled {
-            opacity: 0.5;
-          }
-        }
-      }
-
-      button {
-        outline: none;
       }
     }
   }
