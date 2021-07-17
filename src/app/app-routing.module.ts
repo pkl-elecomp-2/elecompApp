@@ -45,7 +45,11 @@ const routes: Routes = [
   {
     path: 'tentang',
     loadChildren: () => import('./pages/tentang/tentang.module').then( m => m.TentangPageModule)
+  },  {
+    path: 'register',
+    loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterPageModule)
   }
+
 ];
 
 @NgModule({
