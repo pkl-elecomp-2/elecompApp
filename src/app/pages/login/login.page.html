@@ -15,7 +15,7 @@
     <div class="space"></div>
     <form>
       <ion-item lines="none">
-        <ion-label color="dark" position="floating">Username</ion-label>
+        <ion-label position="floating">Username</ion-label>
         <ion-input
           type="text"
           name="username"
@@ -34,10 +34,12 @@
         </ion-input>
       </ion-item>
       
-      <ion-item>
+      <!-- <ion-item class="rememberMe"> -->
+      <div class="rememberMe"> 
         <ion-label>Remember Me</ion-label>
-        <ion-checkbox mode="ios" [(ngModel)]="isChecked" name="isChecked"></ion-checkbox>
-      </ion-item>
+        <ion-checkbox mode="ios" [(ngModel)]="isChecked" name="isChecked" color="dark"></ion-checkbox>
+      </div>
+      <!-- </ion-item> -->
 
       <div class="space"></div>
 
