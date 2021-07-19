@@ -13,6 +13,7 @@ export class LoginPage implements OnInit {
 
   username: string;
   password: string;
+  // eslint-disable-next-line @typescript-eslint/no-inferrable-types
   isChecked: boolean = true;
 
   constructor(
@@ -33,7 +34,7 @@ export class LoginPage implements OnInit {
     // .set('userEmail', this.username)
     // .set('userPassword', this.password);
 
-    if (this.username === "elecomp" && this.password === "elecomp123") {
+    if (this.username === 'elecomp' && this.password === 'elecomp123') {
       this.toastService.showSuccess('Login success!');
       this.reRoute();
       if (this.isChecked) {
@@ -42,7 +43,7 @@ export class LoginPage implements OnInit {
         this.saveStorage(this.username, this.isChecked);
       }
     } else {
-      this.toastService.showError("Login Failed: Invalid Username or Password");
+      this.toastService.showError('Login Failed: Invalid Username or Password');
     }
 
     // return this.http.post('http://localhost:8080/login', params, {headers}).subscribe((response: any) => {

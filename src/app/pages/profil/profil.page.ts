@@ -13,7 +13,7 @@ export class ProfilPage implements OnInit {
   username: any;
 
   constructor(
-    private storage: Storage, 
+    private storage: Storage,
     private router: Router,
     private toastService: ToastService,
   ) { }
@@ -21,18 +21,19 @@ export class ProfilPage implements OnInit {
   ionViewWillEnter() {
     // Check if the user is logged in
     this.storage.get('user').then((value) => {
-      this.username = (value == null || value == '') ? 'Guest' : value;
+      this.username = (value == null || value === '') ? 'Guest' : value;
     });
   };
 
   ngOnInit() {}
 
   checkIcon() {
-    return this.username != "Guest"
+    return this.username !== 'Guest';
   }
 
   logOut() {
-    this.storage.clear().then(() => {
+    this.storage.set('isChecked', false);
+    this.storage.set('user', '').then(() => {
       this.toastService.showSuccess('You have been logged out');
     });
     this.redirect();
@@ -45,6 +46,7 @@ export class ProfilPage implements OnInit {
     });
   }
 
+  // eslint-disable-next-line @typescript-eslint/member-ordering
   doRefresh(event) {
     console.log('Begin async operation');
       event.target.complete();

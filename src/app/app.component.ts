@@ -12,8 +12,15 @@ export class AppComponent {
 
     this.storage.get('isChecked').then( data => {
       if (!data) {
-        this.storage.clear();
+        this.storage.set('user', '');
       }
     });
+
+    this.storage.get('user').then(val => {
+      if(val === undefined || val === null) {
+        this.storage.set('user', '');
+      }
+    });
+
   }
 }

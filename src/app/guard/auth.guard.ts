@@ -17,7 +17,7 @@ export class AuthGuard implements CanActivate {
         if (await this.storage.get('user') !== '' && this.storage.get('user') !== null ) {
             // logged in so return true
             return true;
-}
+        }
 
         // not logged in so redirect to login page with the return url
         this.presentAlert('Anda belum login');
