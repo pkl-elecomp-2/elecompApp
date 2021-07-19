@@ -15,7 +15,7 @@ export class ProfilPage implements OnInit {
   constructor(
     private storage: Storage, 
     private router: Router,
-    private toastService: ToastService
+    private toastService: ToastService,
   ) { }
 
   ionViewWillEnter() {
@@ -28,15 +28,11 @@ export class ProfilPage implements OnInit {
   ngOnInit() {}
 
   checkIcon() {
-    if(this.username != "Guest") {
-      return true;
-    } else {
-      return false;
-    }
+    return this.username != "Guest"
   }
 
   logOut() {
-    this.storage.set('user', '').then(() => {
+    this.storage.clear().then(() => {
       this.toastService.showSuccess('You have been logged out');
     });
     this.redirect();

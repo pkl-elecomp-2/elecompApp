@@ -2,8 +2,7 @@ import { ToastService } from './../../services/toast.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
-import { ToastController } from '@ionic/angular';
-import { HttpClient,HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -14,16 +13,16 @@ export class LoginPage implements OnInit {
 
   username: string;
   password: string;
-  rememberMe: boolean;
+  isChecked: boolean = true;
 
   constructor(
     private http: HttpClient,
     private toastService: ToastService,
-    private storage: Storage,
     private router: Router,
+    private storage: Storage
   ) { }
 
-  ngOnInit() { }
+  ngOnInit() {}
 
   // Login
   onLogin() {
@@ -33,11 +32,15 @@ export class LoginPage implements OnInit {
     // const params = new HttpParams()
     // .set('userEmail', this.username)
     // .set('userPassword', this.password);
-    
-    if (this.username == "elecomp" && this.password == "elecomp123") {
-      this.toastService.showSuccess("Login Successful");
-      this.reloadCurrentRoute();
-      this.storage.set('user', this.username);      
+
+    if (this.username === "elecomp" && this.password === "elecomp123") {
+      this.toastService.showSuccess('Login success!');
+      this.reRoute();
+      if (this.isChecked) {
+        this.saveStorage(this.username, this.isChecked);
+      } else {
+        this.saveStorage(this.username, this.isChecked);
+      }
     } else {
       this.toastService.showError("Login Failed: Invalid Username or Password");
     }
@@ -54,9 +57,15 @@ export class LoginPage implements OnInit {
     // });
   }
 
+  // Save to Local Storage
+  private saveStorage(user: string, isChecked: boolean) {
+    this.storage.set('user', user);
+    this.storage.set('isChecked', isChecked);
+  }
+
   // When Login success redirect to
-  private reloadCurrentRoute() {
-    const currentUrl = 'tab/profile';
+  private reRoute() {
+    const currentUrl = 'tab/profil';
     this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
         this.router.navigate([currentUrl]);
     });
