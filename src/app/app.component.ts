@@ -9,5 +9,11 @@ import { Storage } from '@ionic/storage';
 export class AppComponent {
   constructor(private storage: Storage) {
     this.storage.create();
+
+    this.storage.get('user').then( data => {
+      if (data === null || data === undefined) {
+        this.storage.set('user', '');
+      }
+    });
   }
 }

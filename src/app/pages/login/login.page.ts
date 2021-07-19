@@ -14,6 +14,7 @@ export class LoginPage implements OnInit {
 
   username: string;
   password: string;
+  rememberMe: boolean;
 
   constructor(
     private http: HttpClient,

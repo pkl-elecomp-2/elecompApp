@@ -41,12 +41,12 @@ export class MemberPage implements OnInit {
 
   ionViewWillEnter() {
     // Check if user is logged in
-    this.storage.get('user').then((value) => {
-      if (value == '' || value == null) {
-        this.toastService.showWarning('Please login first');
-        this.router.navigateByUrl('/login');
-      }
-    });
+    // this.storage.get('user').then((value) => {
+    //   if (value == '' || value == null) {
+    //     this.toastService.showWarning('Please login first');
+    //     this.router.navigateByUrl('/login');
+    //   }
+    // });
     // Load data Member
     this.dataMember();
   }
