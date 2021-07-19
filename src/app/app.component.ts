@@ -11,6 +11,7 @@ export class AppComponent {
     this.storage.create();
 
     this.storage.get('isChecked').then( data => {
+      // If user won't remember me
       if (!data) {
         this.storage.set('user', '');
       }
