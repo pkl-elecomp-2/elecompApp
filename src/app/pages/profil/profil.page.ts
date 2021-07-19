@@ -1,7 +1,6 @@
-import { ToastService } from './../../services/toast.service';
 import { Component, OnInit } from '@angular/core';
-import { Storage } from '@ionic/storage';
-import { Router } from '@angular/router';
+import { LoadingController } from '@ionic/angular';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-profil',
@@ -10,45 +9,40 @@ import { Router } from '@angular/router';
 })
 export class ProfilPage implements OnInit {
 
-  username: any;
+  responseData: any;
+  getTentang: any;
 
   constructor(
-    private storage: Storage,
-    private router: Router,
-    private toastService: ToastService,
-  ) { }
+    public api: ApiService,
+    public loadingController: LoadingController) { }
 
-  ionViewWillEnter() {
-    // Check if the user is logged in
-    this.storage.get('user').then((value) => {
-      this.username = (value == null || value === '') ? 'Guest' : value;
-    });
-  };
+  ionViewWillEnter(){
+    this.dataTentang();
+  }
 
   ngOnInit() {}
 
-  checkIcon() {
-    return this.username !== 'Guest';
-  }
-
-  logOut() {
-    this.storage.set('isChecked', false);
-    this.storage.set('user', '').then(() => {
-      this.toastService.showSuccess('You have been logged out');
+  async dataTentang() {
+    const loading = await this.loadingController.create({
+      message: 'Loading...'
     });
-    this.redirect();
-  }
+    await loading.present();
+    await this.api.getData('getTentang')
+      .subscribe(res => {
+        this.responseData=res;
+        console.log(res);
 
-  private redirect() {
-    const currentUrl = 'tab/profil';
-    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
-        this.router.navigate([currentUrl]);
-    });
-  }
-
-  // eslint-disable-next-line @typescript-eslint/member-ordering
-  doRefresh(event) {
-    console.log('Begin async operation');
-      event.target.complete();
+        if(this.responseData.getTentang){
+          this.getTentang=this.responseData.getTentang;
+          loading.dismiss();
+        }
+        else{
+          this.getTentang='';
+          loading.dismiss();
+       }
+      }, err => {
+        console.log(err);
+        loading.dismiss();
+      });
   }
 }

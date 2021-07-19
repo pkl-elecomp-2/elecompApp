@@ -43,9 +43,6 @@ const routes: Routes = [
     loadChildren: () => import('./pages/detail-member/detail-member.module').then( m => m.DetailMemberPageModule)
   },
   {
-    path: 'tentang',
-    loadChildren: () => import('./pages/tentang/tentang.module').then( m => m.TentangPageModule)
-  },  {
     path: 'register',
     loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterPageModule)
   }

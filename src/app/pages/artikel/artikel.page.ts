@@ -2,9 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LoadingController } from '@ionic/angular';
 import { ArtikelService } from 'src/app/services/artikel.service';
 import { AlertController } from '@ionic/angular';
-import { NgZone } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
-import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-artikel',
@@ -25,9 +23,7 @@ export class ArtikelPage implements OnInit {
     public api: ArtikelService,
     public loadingController: LoadingController,
     public alertController: AlertController,
-    private router: Router,
-    private zone: NgZone,
-    private storage: Storage
+    private router: Router
   ) { }
 
   async ngOnInit() {
@@ -35,7 +31,6 @@ export class ArtikelPage implements OnInit {
 
   ionViewWillEnter() {
     this.dataArtikel();
-    // console.log(this.storage.get('currentUser'));
   };
 
   async dataArtikel() {
@@ -78,13 +73,8 @@ export class ArtikelPage implements OnInit {
       jumlah_pengunjung : 1
     };
 
-    //console.log('id_artikel',dataUpdate);
-    // console.log('dataUpdate',dataUpdate['jumlah_pengunjung']);
-
-    this.api.updateCountArticle(dataUpdate)
-    .then(res => {
+    this.api.updateCountArticle(dataUpdate).then(res => {
       this.router.navigate(['detailartikel'], navExtras);
-     // console.log('Content updated successfully!');
     }, (error) => {
       console.log(error);
     });

@@ -26,11 +26,12 @@
 
         .logo {
           flex: 1;
+          text-align: center;
 
           img {
             height: 20px;
-            padding-top: 1px;
-            padding-left: 5px;
+            // padding-top: 1px;
+            // padding-left: 5px;
           }
         }
 
@@ -40,66 +41,30 @@
       }
     }
 
-    .c-login {
+    .c-img {
       margin: -16px;
       margin-top: -45px;
-      background: var(--ion-color-primary);
-      // padding: 16px;
       text-align: center;
-
-      .member {
-        background: var(--ion-color-primary);
-        height: 10px;
-        // border-radius: 50px;
-        // box-shadow: 0 0 7px -2px rgba(0, 0, 0, 0.2);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 10px;
-        // transform: translateY(-50%);
-      }
-
-      img {
-        height: 150px;
-      }
     }
 
-    .c-galeri {
-      padding-top: 0px;
-      padding-bottom: 20px;
-
-      .galeri {
-        height: 210px;
-        justify-items: center;
-        align-items: center;
-        padding-left: 30px;
-        padding-right: 30px;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-gap: 10px;
-
-        div {
-          background: var(--ion-color-primary-850);
-          width: 100px;
-          height: 100px;
-          padding-top: 10px;
-          text-align: center;
-          border-radius: 10px;
-          font-size: 10pt;
-
-          table {
-            margin: 15px;
-
-            th {
-              margin-right: 10px;
-              padding-right: 10px;
-            }
-          }
-
-          img {
-            width: 90px;
-            height: 50px;
-          }
+    .c-isi {
+      padding-top: 50%;
+      background: white;
+      margin: 10 16px;
+      border-radius: 10px;
+      box-shadow: 0 0 7px -2px rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+      transform: translateY(-5%);
+      .title {
+        img {
+          text-align: left;
+          width: 150px;
+          padding-left: 5%;
+          padding-top: 3%;
+          // height: 80px;
         }
       }
     }

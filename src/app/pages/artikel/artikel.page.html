@@ -1,16 +1,8 @@
-<!-- <ion-header>
-    <ion-toolbar>
-      <ion-title>
-        Artikel
-      </ion-title>
-    </ion-toolbar>
-  </ion-header> -->
-
   <ion-content>
     <div class="c-top">
       <div class="c-content"></div>
       <div class="content">
-        <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher slot="fixed" (ionRefresh)="doRefresh()">
           <ion-refresher-content
             pullingIcon="chevron-down-circle-outline"
             pullingText="Pull to refresh"
@@ -20,7 +12,6 @@
           </ion-refresher-content>
         </ion-refresher>
         <div class="logo">Artikel</div>
-        <div><ion-icon name="alert-circle-outline" routerLink="/tentang"></ion-icon></div>
         <!-- <div>
             <ion-searchbar (ionInput)="FilterJSONData($artikel)"></ion-searchbar>
           </div> -->
