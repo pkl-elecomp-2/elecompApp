@@ -1,26 +1,23 @@
 <ion-content>
-  <div class="c-top">
-    <div class="c-content"></div>
-    <div class="content">
-      <div routerLink="/tab">
-        <ion-icon name="arrow-back-outline"></ion-icon>
-      </div>
+  <div class="header">
+    <div class="header-bg"></div>
+    <div class="header-content">
       <div class="logo">
         <img src="../../../assets/img/logo.jpg">
       </div>
     </div>
   </div>
 
-  <div class="c-img">
+  <div class="profile-logo">
     <img
-      src="https://elecompindonesia.com/locus/assets/img/foto_profil.jpg"
-    />
+      src="../../../assets/img/logo.jpg"/>
   </div>
 
-  <div class="c-isi" *ngFor="let data of getTentang">
-    <div class="title">
-      <img src="../../../assets/img/logo.jpg" /><br />
-      <p style="text-align: center">{{data.deskripsi_tentang}}</p>
+  <div class="profile-content" *ngFor="let data of getTentang">
+    <div>
+      <p style="text-align: center">
+        {{data.deskripsi_tentang}}
+      </p>
       <br />
       <h5><b>Visi</b></h5>
       <p>{{data.visi}}</p>
@@ -28,6 +25,5 @@
       <h5><b>Misi</b></h5>
       <p>{{data.misi}}</p>
     </div>
-    <div></div>
   </div>
 </ion-content>
