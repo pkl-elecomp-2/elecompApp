@@ -59,6 +59,41 @@
       }
     }
 
+    .card-container {
+      width: 100%;
+      height: auto;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      .card-layanan {
+        display: flex;
+        // justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 46%;
+        height: auto;
+        margin: 2%;
+        border: 1px solid gray;
+        padding: 5%;
+        border-radius: 15px;
+
+        img {
+          width: 50%;
+        }
+
+        div {
+          h6 {
+            font-size: 0.75em;
+            text-align: center;
+          }
+        }
+        p {
+          font-size: 0.75em;
+          text-align: center;
+        }
+      }
+    }
+
     .c-promo {
       margin: 0 -16px;
 
@@ -85,7 +120,7 @@
           border-radius: 10px;
           // padding-top: 100%;
 
-          ion-card{
+          ion-card {
             display: flex;
             flex-direction: column;
             width: 100% !important;
