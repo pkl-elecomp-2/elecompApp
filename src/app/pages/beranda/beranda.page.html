@@ -24,12 +24,91 @@
 
   <div class="c-promo">
     <div class="title">
-      <b>Promo</b>
-      <div class="d-title" routerLink="/listpromo">Lihat Semua</div>
+      <b>Layanan</b>
     </div>
-    <ion-slides pager="true" [options]="promoSlide" *ngIf="getPromo">
-      <ion-slide *ngFor="let data of getPromo">
-        <img (click)="openDetailPromo(data)" [src]="data.poster_promo === '' || data.poster_promo === null? 'assets/img/image.jpeg' : serverUrlAsset + data.poster_promo">
+    <ion-slides pager="true" [options]="promoSlide">
+      <ion-slide>
+        <ion-card mode="ios">
+          <img src="../../../assets/img/layanan/layanan01.png" />
+          <ion-card-header>
+            <ion-card-title>Pengembangan Sistem Informasi (Customize)</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            Elecomp Indonesia menyediakan Jasa Pengembangan Sistem Informasi Yang Bisa di Customize Sesuai Dengan Kebutuhan Client.
+          </ion-card-content>
+        </ion-card>
+      </ion-slide>
+
+      <ion-slide>
+        <ion-card>
+          <img src="../../../assets/img/layanan/layanan02.png" />
+          <ion-card-header>
+            <ion-card-title>Jasa Pembuatan WebGIS (Website Sistem Informasi Geografis)</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            Elecomp Indonesia menyediakan Jasa Pembuatan WebGIS (Website Sistem Informasi Geografis / Geographic Information System).
+          </ion-card-content>
+        </ion-card>
+      </ion-slide>
+
+      <ion-slide>
+        <ion-card>
+          <img src="../../../assets/img/layanan/layanan03.png" />
+          <ion-card-header>
+            <ion-card-title>Jasa Pembuatan Website Toko Online / E-Commerce</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            Elecomp Indonesia menyediakan Jasa Pembuatan Website Toko Online / E-Commerce yang dapat digunakan untuk berjualan secara online.
+          </ion-card-content>
+        </ion-card>
+      </ion-slide>
+
+      <ion-slide>
+        <ion-card>
+          <img src="../../../assets/img/layanan/layanan04.png" />
+          <ion-card-header>
+            <ion-card-title>Pelatihan dan Pendampingan Digital Marketing</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            Elecomp Indonesia menyediakan jasa Pelatihan dan Pendampingan Digital Marketing (Pemasaran Digital) untuk Perusahaan Swasta, Pemerintahan, Pendidikan, Komunitas, UMKM, dan lain-lain.
+          </ion-card-content>
+        </ion-card>
+      </ion-slide>
+
+      <ion-slide>
+        <ion-card>
+          <img src="../../../assets/img/layanan/layanan05.png" />
+          <ion-card-header>
+            <ion-card-title>Jasa Pembuatan Aplikasi Mobile (Android dan IOS)</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            Elecomp Indonesia menyediakan Jasa Pembuatan Aplikasi Mobile Android dan IOS untuk Perusahaan Swasta, Pemerintahan, Pendidikan, Komunitas, UMKM, dan lain-lain.
+          </ion-card-content>
+        </ion-card>
+      </ion-slide>
+
+      <ion-slide>
+        <ion-card>
+          <img src="../../../assets/img/layanan/layanan06.png" />
+          <ion-card-header>
+            <ion-card-title>Jasa Pembuatan Website Company Profile Profesional</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            Elecomp Indonesia menyediakan Jasa Pembuatan Website Company Profile Profesional, mulai dari Website Perusahaan Swasta, Pemerintahan, Pendidikan, Komunitas, UMKM, dan lain-lain.
+          </ion-card-content>
+        </ion-card>
+      </ion-slide>
+    </ion-slides>
+  </div>
+
+  <div class="c-promo">
+    <div class="title">
+      <b>Promo</b>
+      <!-- <div class="d-title" routerLink="/listpromo">Lihat Semua</div> -->
+    </div>
+    <ion-slides pager="true" [options]="promoSlide">
+      <ion-slide>
+        <img src="../../../assets/img/promo/promo.jpg">
       </ion-slide>
     </ion-slides>
   </div>

@@ -47,10 +47,10 @@ export class BerandaPage implements OnInit {
 
   ngOnInit() {}
 
-  ionViewWillEnter() {
-    this.dataSlider();
-    this.dataPromo();
-  }
+  // ionViewWillEnter() {
+  //   this.dataSlider();
+  //   this.dataPromo();
+  // }
 
   async dataSlider() {
     const loading = await this.loadingController.create({
