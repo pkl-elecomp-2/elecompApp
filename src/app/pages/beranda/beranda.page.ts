@@ -4,6 +4,7 @@ import { ApiService } from 'src/app/services/api.service';
 import { Router, NavigationExtras } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormControl, FormGroupDirective, NgForm} from '@angular/forms';
 import { AlertController } from '@ionic/angular';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-beranda',
@@ -41,6 +42,7 @@ export class BerandaPage implements OnInit {
     private router: Router,
     public navController: NavController,
     public alertController: AlertController,
+    private storage: Storage
   ) {
     this.serverUrlAsset = this.api.serverUrlAsset;
   }
@@ -102,4 +104,26 @@ export class BerandaPage implements OnInit {
     };
     this.router.navigate(['detailpromo'], navExtras);
   }
+
+  checkIcon() {
+    let cek;
+    this.storage.get('user').then(val => cek = val);
+    if(cek) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  logOut() {
+    this.storage.set('user', '');
+    // this.reloadCurrentRoute();
+  }
+
+  // reloadCurrentRoute() {
+  //   const currentUrl = 'tab/profil';
+  //   this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+  //       this.router.navigate([currentUrl]);
+  //   });
+  // }
 }

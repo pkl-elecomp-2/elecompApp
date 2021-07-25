@@ -19,7 +19,7 @@
           >
           </ion-refresher-content>
         </ion-refresher>
-        <div class="logo">Member</div>
+        <div class="logo">Client</div>
         <div><ion-icon name="alert-circle-outline" routerLink="/tentang"></ion-icon></div>
         <!-- <div>
             <ion-searchbar (ionInput)="FilterJSONData($artikel)"></ion-searchbar>
@@ -30,19 +30,69 @@
     <div class="c-galeri">
       <div class="galeri">
       <ion-searchbar placeholder="Pencarian" [(ngModel)]="textCari" (ionInput)="cariOnInput()" (ionCancel)="cariOnCancel()" (keypress)="inputPress($event)"></ion-searchbar>
-      <ion-item button *ngFor="let item of (results | async)" [routerLink]="['/', 'listmember', item.id_member]">
-      {{item.nama_member}}
-      </ion-item>
-      <div *ngFor="let data of getMemberUI" (click)="openDetail(data)">
-        <ion-card>
-          <!-- <ion-avatar> -->
-            <img [src]="data.foto_kta === '' || data.foto_kta === null? 'assets/img/image.jpeg' : serverUrlAsset + data.foto_kta">
-          <!-- </ion-avatar> -->
-          <ion-card-header>
-              <h3>{{data.nama_member}}</h3>
-              <p>{{data.profesi_member}}</p>
-          </ion-card-header>
-        </ion-card>
+      <div class="list-tiket">
+        <h4>List Tiket</h4>
+        <ion-grid>
+          <ion-row>
+            <ion-col style="border-top: 2px solid gray;">
+              <p>No</p>
+            </ion-col>
+            <ion-col style="border-top: 2px solid gray;">
+              <p>Subject</p>
+            </ion-col>
+            <ion-col style="border-top: 2px solid gray;">
+              <p>Status</p>
+            </ion-col>
+            <ion-col style="border-top: 2px solid gray;">
+              <p>Date</p>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <p>1</p>
+            </ion-col>
+            <ion-col>
+              <p style="color: var(--ion-color-primary);">#00000002
+                Kok error</p>
+            </ion-col>
+            <ion-col>
+              <p>Awaiting your Reply</p>
+            </ion-col>
+            <ion-col>
+              <p>27-05-2021</p>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+
+      <div class="form-tiket">
+        <h4>Buka Tiket</h4>
+        <form action="#">
+          <div>
+            <h6>Nama</h6>
+            <ion-input value="Elecomp" disabled></ion-input>
+          </div>
+          <div>
+            <h6>Email</h6>
+            <ion-input type="email" placeholder="Email"></ion-input>
+          </div>
+          <div>
+            <h6>Subjek</h6>
+            <ion-input type="text" placeholder="Email"></ion-input>
+          </div>
+          <div>
+            <h6>Low</h6>
+            <ion-input type="text" placeholder="Email"></ion-input>
+          </div>
+          <div>
+            <h6>Pesan</h6>
+            <ion-textarea rows="6" cols="20" placeholder="Pesan"></ion-textarea>
+          </div>
+          <div>
+            <input type="file">
+          </div>
+          <ion-button style="color: white;" expand="block" type="submit">Submit</ion-button>
+        </form>
       </div>
       </div>
     </div>

@@ -6,7 +6,10 @@
         <img src="../../../assets/img/logo.jpg" />
       </div>
       <div>
-        <ion-icon name="log-in-outline" routerLink="/login"></ion-icon>
+        <!-- <ion-icon *ngIf="checkIcon(); else showThis" name="log-out-outline" (click)="logOut()"></ion-icon> -->
+        <!-- <ng-template #showThis> -->
+          <ion-icon name="log-in-outline" routerLink="/login"></ion-icon>
+        <!-- </ng-template> -->
       </div>
     </div>  
   </div>
