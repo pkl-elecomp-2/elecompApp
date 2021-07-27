@@ -35,6 +35,17 @@
       }
     }
 
+    .profil-user {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+
+      img {
+        max-width: 40%;
+      }
+    }
+
     .body-content {
       .card-container {
         display: flex;
@@ -61,61 +72,6 @@
           h6 {
             color: #fff;
             margin-bottom: 0;
-          }
-        }
-      }
-    }
-
-    .c-galeri {
-      padding-bottom: 20px;
-
-      .galeri {
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-gap: 10px;
-
-        .list-tiket {
-          margin-bottom: 5%;
-
-          h4 {
-            text-align: center;
-            margin-bottom: 5%;
-          }
-
-          ion-grid {
-            ion-row {
-              border: 0.5px solid gray;
-              border-top: none;
-              ion-col {
-                border: 0.5px solid gray;
-                border-top: none;
-                p {
-                  padding: 0;
-                  text-align: center;
-                }
-              }
-
-              ion-col:first-child {
-                max-width: 10%;
-              }
-            }
-          }
-        }
-
-        .form-tiket {
-          h4 {
-            text-align: center;
-          }
-          form {
-            div {
-              margin-bottom: 5%;
-
-              ion-input,
-              ion-textarea {
-                border: 1px solid gray;
-                border-radius: 5px;
-              }
-            }
           }
         }
       }

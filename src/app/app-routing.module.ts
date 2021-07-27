@@ -49,6 +49,10 @@ const routes: Routes = [
   {
     path: 'tiket',
     loadChildren: () => import('./pages/tiket/tiket.module').then( m => m.TiketPageModule)
+  },
+  {
+    path: 'editClient',
+    loadChildren: () => import('./pages/edit-client/edit-client.module').then( m => m.EditClientPageModule)
   }
 
 ];
