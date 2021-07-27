@@ -26,75 +26,22 @@
           </div> -->
       </div>
     </div>
-  
-    <div class="c-galeri">
-      <div class="galeri">
-      <ion-searchbar placeholder="Pencarian" [(ngModel)]="textCari" (ionInput)="cariOnInput()" (ionCancel)="cariOnCancel()" (keypress)="inputPress($event)"></ion-searchbar>
-      <div class="list-tiket">
-        <h4>List Tiket</h4>
-        <ion-grid>
-          <ion-row>
-            <ion-col style="border-top: 2px solid gray;">
-              <p>No</p>
-            </ion-col>
-            <ion-col style="border-top: 2px solid gray;">
-              <p>Subject</p>
-            </ion-col>
-            <ion-col style="border-top: 2px solid gray;">
-              <p>Status</p>
-            </ion-col>
-            <ion-col style="border-top: 2px solid gray;">
-              <p>Date</p>
-            </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col>
-              <p>1</p>
-            </ion-col>
-            <ion-col>
-              <p style="color: var(--ion-color-primary);">#00000002
-                Kok error</p>
-            </ion-col>
-            <ion-col>
-              <p>Awaiting your Reply</p>
-            </ion-col>
-            <ion-col>
-              <p>27-05-2021</p>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
-      </div>
 
-      <div class="form-tiket">
-        <h4>Buka Tiket</h4>
-        <form action="#">
-          <div>
-            <h6>Nama</h6>
-            <ion-input value="Elecomp" disabled></ion-input>
-          </div>
-          <div>
-            <h6>Email</h6>
-            <ion-input type="email" placeholder="Email"></ion-input>
-          </div>
-          <div>
-            <h6>Subjek</h6>
-            <ion-input type="text" placeholder="Email"></ion-input>
-          </div>
-          <div>
-            <h6>Low</h6>
-            <ion-input type="text" placeholder="Email"></ion-input>
-          </div>
-          <div>
-            <h6>Pesan</h6>
-            <ion-textarea rows="6" cols="20" placeholder="Pesan"></ion-textarea>
-          </div>
-          <div>
-            <input type="file">
-          </div>
-          <ion-button style="color: white;" expand="block" type="submit">Submit</ion-button>
-        </form>
-      </div>
-      </div>
+    <div class="body-content">
+      <div class="card-container">
+        <div class="card" routerLink="/tiket">
+          <ion-icon name="ticket-outline"></ion-icon>
+          <h6>Tiket</h6>
+        </div>
+        <div class="card">
+          <ion-icon name="person-circle-outline"></ion-icon>
+          <h6>Edit Profil</h6>
+        </div>
+        <div class="card">
+          <ion-icon name="chatbox-ellipses-outline"></ion-icon>
+          <h6>Kirim Survey</h6>
+        </div>
+      </div>   
     </div>
   </ion-content>
   
