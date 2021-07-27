@@ -53,6 +53,10 @@ const routes: Routes = [
   {
     path: 'editClient',
     loadChildren: () => import('./pages/edit-client/edit-client.module').then( m => m.EditClientPageModule)
+  },
+  {
+    path: 'survey',
+    loadChildren: () => import('./pages/survey/survey.module').then( m => m.SurveyPageModule)
   }
 
 ];
