@@ -1,3 +1,4 @@
+import { ApiService } from 'src/app/services/api.service';
 import { Component, OnInit } from '@angular/core';
 import { LoadingController } from '@ionic/angular';
 import { ArtikelService } from 'src/app/services/artikel.service';
@@ -11,23 +12,18 @@ import { Router, NavigationExtras } from '@angular/router';
 })
 export class ArtikelPage implements OnInit {
 
-  response: any;
   getArtikel: any;
-  getMember: any;
-  jsonData: any = [];
-  jumlahPengunjung;
 
   serverUrlAsset = this.api.serverUrlAsset;
 
   constructor(
-    public api: ArtikelService,
+    public api: ApiService,
     public loadingController: LoadingController,
     public alertController: AlertController,
     private router: Router
   ) { }
 
-  async ngOnInit() {
-  }
+  async ngOnInit() {}
 
   ionViewWillEnter() {
     this.dataArtikel();
@@ -39,18 +35,9 @@ export class ArtikelPage implements OnInit {
       message: 'Please Wait...',
     });
     await loading.present();
-    await this.api.getArticle('getArtikel').subscribe(
-      (res) => {
-        this.response = res;
-        console.log(res);
-        if (this.response.getArtikel) {
-          this.getArtikel = this.response.getArtikel;
-          console.log('Masuk sini');
-          loading.dismiss();
-        } else {
-          this.getArtikel = '';
-          loading.dismiss();
-        }
+    await this.api.getData('Artikel').subscribe( (res) => {
+      this.getArtikel = (res.data) ? res.data : '';
+      loading.dismiss();
       },
       (err) => {
         console.log(err);
@@ -65,19 +52,6 @@ export class ArtikelPage implements OnInit {
         artikel: idArtikel,
       },
     };
-
-    const dataUpdate = {
-      // eslint-disable-next-line @typescript-eslint/naming-convention
-      artikel_id : idArtikel.id_artikel,
-      // eslint-disable-next-line @typescript-eslint/naming-convention
-      jumlah_pengunjung : 1
-    };
-
-    this.api.updateCountArticle(dataUpdate).then(res => {
-      this.router.navigate(['detailartikel'], navExtras);
-    }, (error) => {
-      console.log(error);
-    });
   }
 
   formatDate(date) {
@@ -92,6 +66,10 @@ export class ArtikelPage implements OnInit {
         {day = '0' + day;}
 
     return [day, month, year].join('-');
-}
+  }
 
+  doRefresh(event){
+    this.dataArtikel();
+    event.target.complete();
+  }
 }

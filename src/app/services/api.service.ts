@@ -16,12 +16,11 @@ export class ApiService {
   public serverUrlAsset;
 
   constructor(private http: HttpClient) {
-    this.serverUrl = 'https://elecompindonesia.com/apilocus/data/index.php';
-    this.serverUrlAsset = 'https://elecompindonesia.com/locus/assets/img/';
+    this.serverUrl = 'http://localhost/elecompAPI3';
+    this.serverUrlAsset = 'https://elecompindonesia.com/assets/img/';
    }
 
   getData(type: any): Observable<any> {
-    // console.log(type);
     return this.http.get(`${this.serverUrl}/${type}`);
   }
 

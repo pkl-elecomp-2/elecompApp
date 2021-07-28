@@ -13,11 +13,11 @@ import { Storage } from '@ionic/storage';
 })
 export class BerandaPage implements OnInit {
 
-  responseData: any;
   getSlider: any;
   getPromo: any;
+  getLayanan: any;
 
-  bannerSlide = {
+  oneItemSlide = {
     speed: 400,
     spaceBetween: 10,
     slidesPerView: 1.4,
@@ -28,7 +28,7 @@ export class BerandaPage implements OnInit {
     },
   };
 
-  promoSlide = {
+  dragSlide = {
     speed: 400,
     spaceBetween: 10,
     slidesPerView: 3.5
@@ -49,10 +49,21 @@ export class BerandaPage implements OnInit {
 
   ngOnInit() {}
 
-  // ionViewWillEnter() {
-  //   this.dataSlider();
-  //   this.dataPromo();
-  // }
+  ionViewWillEnter() {
+    this.dataSlider();
+    this.dataPromo();
+    this.dataLayanan();
+  }
+
+  async dataLayanan() {
+    await this.api.getData('Beranda/layanan').subscribe( (res) => {
+      this.getLayanan = (res.data.length > 0) ? res.data : '';
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+  }
 
   async dataSlider() {
     const loading = await this.loadingController.create({
@@ -60,12 +71,10 @@ export class BerandaPage implements OnInit {
       message: 'Please Wait...',
     });
     await loading.present();
-    await this.api.getData('getSlider').subscribe(
-      (res) => {
-        this.responseData = res;
-        console.log(res);
-        if (this.responseData.getSlider) {
-          this.getSlider = this.responseData.getSlider;
+
+    await this.api.getData('Beranda').subscribe( (res) => {
+        if (res.data) {
+          this.getSlider = res.data;
           loading.dismiss();
         } else {
           this.getSlider = '';
@@ -80,12 +89,9 @@ export class BerandaPage implements OnInit {
   }
 
   async dataPromo() {
-    this.api.getData('getPromo').subscribe(
-      (res) => {
-        this.responseData = res;
-        console.log(res);
-        if (this.responseData.getPromo) {
-          this.getPromo = this.responseData.getPromo;
+    this.api.getData('Promo').subscribe( (res) => {
+        if (res.activePromo) {
+          this.getPromo = res.activePromo;
         } else {
           this.getPromo = '';
         }

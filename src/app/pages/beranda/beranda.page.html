@@ -15,18 +15,16 @@
   </div>
 
   <div class="c-banner">
-    <ion-slides pager="true" [options]="bannerSlide">
-      <ion-slide>
-        <img src="../../../assets/img/banner/banner1.png" />
-      </ion-slide>
-      <ion-slide>
-        <img src="../../../assets/img/banner/banner2.jpg" />
+    <ion-slides pager="true" [options]="oneItemSlide" *ngIf="getSlider">
+      <ion-slide *ngFor="let data of getSlider">
+        <img [src]="serverUrlAsset + data.foto_slider" [alt]="data.id_slider" />
       </ion-slide>
     </ion-slides>
   </div>
 
     <div style="display: block;">
       <div class="card-container">
+        
         <div class="card-layanan">
           <img src="../../../assets/img/layanan/layanan01.png" />
           <div>
@@ -93,37 +91,15 @@
     <div class="title">
       <b>Layanan</b>
     </div>
-    <ion-slides pager="true" [options]="promoSlide">
-      <ion-slide>
-        
-      </ion-slide>
-
-      <ion-slide>
-
-      </ion-slide>
-
-      <ion-slide>
-        <ion-card>
-
-        </ion-card>
-      </ion-slide>
-
-      <ion-slide>
-        <ion-card>
-          
-        </ion-card>
-      </ion-slide>
-
-      <ion-slide>
-        <ion-card>
-
-        </ion-card>
-      </ion-slide>
-
-      <ion-slide>
-        <ion-card>
-          
-        </ion-card>
+    <ion-slides pager="true" [options]="oneItemSlide" *ngIf="getLayanan">
+      <ion-slide *ngFor="let data of getLayanan">
+        <img [src]="serverUrlAsset + data.img_layanan" [alt]="data.deskripsi_long_layanan" style="width:50px"/>
+        <ion-card-header>
+          <ion-card-title>{{ data.deskripsi_layanan }}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <p>{{ data.deskripsi_long_layanan }}</p>
+        </ion-card-content>
       </ion-slide>
     </ion-slides>
   </div>
@@ -133,9 +109,9 @@
       <b>Promo</b>
       <!-- <div class="d-title" routerLink="/listpromo">Lihat Semua</div> -->
     </div>
-    <ion-slides pager="true" [options]="promoSlide">
-      <ion-slide>
-        <img src="../../../assets/img/promo/promo.jpg">
+    <ion-slides pager="true" [options]="dragSlide" *ngIf="getPromo">
+      <ion-slide *ngFor="let data of getPromo">
+        <img [src]="serverUrlAsset + data.poster_promo">
       </ion-slide>
     </ion-slides>
   </div>
