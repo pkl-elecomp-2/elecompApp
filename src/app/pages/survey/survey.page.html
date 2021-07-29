@@ -61,7 +61,7 @@
     
           <re-captcha (resolved)="captchaResolved($event)" siteKey="6LdQ6tgZAAAAALpjlUUZPmdlEZ-jM7QLljDiouCG" padding></re-captcha>
         
-        <button type="submit" (click)="presentAlert()" class="btn" [disabled]="!captchaPassed || !nama || !no_tlp">
+        <button type="submit" (click)="presentAlert()" class="btn" [disabled]="!captchaPassed || !nama || !noTlp">
           
           <div *ngIf="!isLoading">KIRIM</div>
           

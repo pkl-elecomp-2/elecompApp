@@ -16,7 +16,7 @@ export class ApiService {
   public serverUrlAsset;
 
   constructor(private http: HttpClient) {
-    this.serverUrl = 'http://localhost/elecompAPI3';
+    this.serverUrl = 'http://localhost:8888/elecompAPI3';
     this.serverUrlAsset = 'https://elecompindonesia.com/assets/img/';
    }
 
