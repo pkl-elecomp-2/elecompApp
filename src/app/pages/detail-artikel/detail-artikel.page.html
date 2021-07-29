@@ -21,7 +21,7 @@
   <div class="body-content ion-padding">
     <ion-label>
       <p>{{formatDate( artikel.tanggal_artikel)}}</p>
-      <p>dilihat {{ artikel.artikel_dilihat}}x</p>
+      <p>Dilihat {{ artikel.artikel_dilihat}}x</p>
     </ion-label>
     <h2>{{ artikel.judul_artikel}}</h2>
     <img [src]=" artikel.foto_artikel === '' ||  artikel.foto_artikel === null? 'assets/img/image.jpeg' : serverUrlAsset + artikel.foto_artikel">
@@ -35,4 +35,16 @@
         </p>
     </ion-label>
   </div>
+
+  <h2>Comments</h2>
+
+  <ion-list>
+    <ion-item *ngFor="let comment of comments">
+      <ion-label>
+        <h2>{{ comment.nama_komentar }}</h2>
+        <h3>{{ comment.tanggal_komentar }}</h3>
+        <p>{{ comment.deskripsi_komentar }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>

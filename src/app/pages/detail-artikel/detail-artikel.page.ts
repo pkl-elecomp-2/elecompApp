@@ -2,7 +2,6 @@ import { ApiService } from 'src/app/services/api.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LoadingController } from '@ionic/angular';
-import { ArtikelService } from 'src/app/services/artikel.service';
 
 @Component({
   selector: 'app-detail-artikel',
@@ -13,6 +12,7 @@ export class DetailArtikelPage implements OnInit {
 
   private artikelId: any;
   artikel: any;
+  comments: any;
 
   serverUrlAsset = this.api.serverUrlAsset;
 
@@ -25,6 +25,7 @@ export class DetailArtikelPage implements OnInit {
   ngOnInit() {
     this.artikelId = this.act.snapshot.paramMap.get('id');
     this.dataArtikel(this.artikelId);
+    this.dataComment(this.artikelId);
   }
 
   async dataArtikel(id: number) {
@@ -43,6 +44,14 @@ export class DetailArtikelPage implements OnInit {
         console.log(err);
         loading.dismiss();
       }
+    );
+  }
+
+  async dataComment(id: number) {
+    await this.api.getData(`Artikel/comment?id=${id}`).subscribe( (res) => {
+      this.comments = (res.data) ? res.data : '';
+      },
+      (err) => { console.log(err); }
     );
   }
 
