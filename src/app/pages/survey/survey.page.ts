@@ -43,9 +43,9 @@ export class SurveyPage implements OnInit {
     this.FormSubmit = this.FormBuilder.group({
       nama: ['', Validators.required],
       email: ['', Validators.required],
-      noTlp: ['', Validators.required],
-      deskripsiSurvey: ['', Validators.required],
-      recaptcha: ['', Validators.required]
+      no_tlp: ['', Validators.required],
+      deskripsi_survey: ['', Validators.required],
+      // recaptcha: ['', Validators.required]
     });
   }
 
@@ -76,9 +76,10 @@ export class SurveyPage implements OnInit {
 
 
   survey() {
-    this.api.postData('Input_Survey',this.FormSubmit.value)
+    this.api.postData('Client/survey',this.FormSubmit.value)
     .subscribe(res => {
-        this.navCtrl.navigateBack('/tabs');
+        this.navCtrl.navigateBack('/member/survey');
+        // window.location.reload();
       }, (err) => {
         console.log(err);
       });

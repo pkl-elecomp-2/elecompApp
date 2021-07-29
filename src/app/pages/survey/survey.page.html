@@ -50,18 +50,18 @@
     
         <ion-item lines="none">
           <ion-label position="floating">No. Telepon</ion-label>
-          <ion-input type="text" formControlName="noTlp" [(ngModel)]="noTlp" required></ion-input>
+          <ion-input type="text" formControlName="no_tlp" [(ngModel)]="no_tlp" required></ion-input>
         </ion-item>
     
         <ion-item lines="none">
           <ion-label position="floating">Kritik/Saran</ion-label>
-          <ion-textarea rows="6" type="text" formControlName="deskripsiSurvey" [(ngModel)]="deskripsiSurvey" required></ion-textarea>
+          <ion-textarea rows="6" type="text" formControlName="deskripsi_survey" [(ngModel)]="deskripsi_survey" required></ion-textarea>
         </ion-item>
         <br>
     
           <re-captcha (resolved)="captchaResolved($event)" siteKey="6LdQ6tgZAAAAALpjlUUZPmdlEZ-jM7QLljDiouCG" padding></re-captcha>
         
-        <button type="submit" (click)="presentAlert()" class="btn" [disabled]="!captchaPassed || !nama || !noTlp">
+        <button type="submit" (click)="presentAlert()" class="btn" [disabled]="!captchaPassed || !nama || !no_tlp">
           
           <div *ngIf="!isLoading">KIRIM</div>
           

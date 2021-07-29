@@ -17,6 +17,8 @@ import { ToastService } from 'src/app/services/toast.service';
 export class MemberPage implements OnInit {
   responseData: any;
   getMember: any;
+  namaMember: any;
+  fotoMember: any;
   getMemberUI: any;
   jsonData: any = [];
   results: Observable<any>;
@@ -57,13 +59,14 @@ export class MemberPage implements OnInit {
       message: 'Loading...',
     });
     await loading.present();
-    await this.api.getData('getMember').subscribe(
+    await this.api.getData('Client/Profil?id=1').subscribe(
       (res) => {
         this.responseData = res;
-        // console.log(res);
+        console.log(res);
 
-        if (this.responseData.getMember) {
-          this.getMember = this.responseData.getMember;
+        if (this.responseData) {
+          this.inputData(this.responseData.data[0]);
+
           if(this.textCari) {return;}
           this.getMemberUI = this.getMember;
           loading.dismiss();
@@ -77,6 +80,11 @@ export class MemberPage implements OnInit {
         loading.dismiss();
       }
     );
+  }
+
+  inputData(data: any){
+    this.namaMember = data.nama_member;
+    this.fotoMember = data.foto_kta;
   }
 
   searchChanged(){
