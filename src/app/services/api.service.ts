@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 
 const httpOptions = {
   // eslint-disable-next-line @typescript-eslint/naming-convention
@@ -22,6 +22,10 @@ export class ApiService {
 
   getData(type: any): Observable<any> {
     return this.http.get(`${this.serverUrl}/${type}`);
+  }
+
+  login(username: any, password: any): Observable<any> {
+    return this.http.get(`${this.serverUrl}/Client?username=${username}&password=${password}`);
   }
 
   postData(type: any, credentials): Observable<any> {
