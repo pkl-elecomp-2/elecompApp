@@ -47,11 +47,7 @@ export class ArtikelPage implements OnInit {
   }
 
   openDetail(idArtikel) {
-    const navExtras: NavigationExtras = {
-      state: {
-        artikel: idArtikel,
-      },
-    };
+    this.router.navigateByUrl(`tab/artikel/${idArtikel}`);
   }
 
   formatDate(date) {

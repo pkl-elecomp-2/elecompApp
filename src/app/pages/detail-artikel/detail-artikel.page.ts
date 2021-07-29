@@ -1,5 +1,7 @@
+import { ApiService } from 'src/app/services/api.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { LoadingController } from '@ionic/angular';
 import { ArtikelService } from 'src/app/services/artikel.service';
 
 @Component({
@@ -9,25 +11,40 @@ import { ArtikelService } from 'src/app/services/artikel.service';
 })
 export class DetailArtikelPage implements OnInit {
 
-  private dataDetail: any;
-  private detail: any;
+  private artikelId: any;
+  artikel: any;
 
-  // eslint-disable-next-line @typescript-eslint/member-ordering
   serverUrlAsset = this.api.serverUrlAsset;
 
-  constructor(private act: ActivatedRoute, private router: Router, public api: ArtikelService) {
-    if (this.router.getCurrentNavigation()) {
-      this.dataDetail = this.router.getCurrentNavigation().extras.state.artikel;
-    }
-    console.log(this.dataDetail);
+  constructor(
+    private act: ActivatedRoute, 
+    public api: ApiService,
+    public loadingController: LoadingController,
+  ) {}
 
-    if (this.router.getCurrentNavigation()) {
-      this.detail = this.router.getCurrentNavigation().extras.state.member;
-    }
-    console.log(this.detail);
+  ngOnInit() {
+    this.artikelId = this.act.snapshot.paramMap.get('id');
+    this.dataArtikel(this.artikelId);
   }
 
-  ngOnInit() {}
+  async dataArtikel(id: number) {
+    const loading = await this.loadingController.create({
+      spinner: 'dots',
+      message: 'Please Wait...',
+    });
+    await loading.present();
+
+    await this.api.getData(`Artikel?id=${id}`).subscribe( (res) => {
+      console.log(res.data[0]);
+      this.artikel = (res.data[0]) ? res.data[0] : '';
+      loading.dismiss(); 
+      },
+      (err) => {
+        console.log(err);
+        loading.dismiss();
+      }
+    );
+  }
 
   doRefresh(event) {
     console.log('Begin async operation');

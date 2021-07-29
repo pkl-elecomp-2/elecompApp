@@ -20,13 +20,13 @@
 
   <div class="body-content ion-padding">
     <ion-label>
-      <p>{{formatDate(dataDetail.tanggal_artikel)}}</p>
-      <p>dilihat {{dataDetail.artikel_dilihat}}x</p>
+      <p>{{formatDate( artikel.tanggal_artikel)}}</p>
+      <p>dilihat {{ artikel.artikel_dilihat}}x</p>
     </ion-label>
-    <h2>{{dataDetail.judul_artikel}}</h2>
-    <img [src]="dataDetail.foto_artikel === '' || dataDetail.foto_artikel === null? 'assets/img/image.jpeg' : serverUrlAsset + dataDetail.foto_artikel">
+    <h2>{{ artikel.judul_artikel}}</h2>
+    <img [src]=" artikel.foto_artikel === '' ||  artikel.foto_artikel === null? 'assets/img/image.jpeg' : serverUrlAsset + artikel.foto_artikel">
     <ion-text>
-      <p>{{dataDetail.deskripsi_artikel}}</p>
+      <p>{{ artikel.deskripsi_artikel}}</p>
     </ion-text>
     <ion-label class="createdBy">
         <p>Penulis :</p>
