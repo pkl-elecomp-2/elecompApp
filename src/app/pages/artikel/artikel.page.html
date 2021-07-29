@@ -18,7 +18,7 @@
     <div class="c-galeri">
       <div class="galeri">
         
-        <div *ngFor="let data of getArtikel" (click)="openDetail(data.id_artikel)">) class="judul">
+        <div *ngFor="let data of getArtikel" (click)="openDetail(data.id_artikel)" class="judul">
           
           <ion-card>
             <img [src]="data.foto_artikel === '' || data.foto_artikel === null ? 'assets/img/image.jpeg' : serverUrlAsset + data.foto_artikel">
