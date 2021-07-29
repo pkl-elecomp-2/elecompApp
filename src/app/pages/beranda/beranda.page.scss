@@ -65,6 +65,7 @@
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
+
       .card-layanan {
         display: flex;
         // justify-content: center;
@@ -137,6 +138,21 @@
             content: "";
             margin-top: 100%;
           }
+        }
+      }
+    }
+
+    .c-layanan {
+      margin: 0 -16px;
+
+      .title {
+        padding: 16px 16px 10px 16px;
+        column-width: 50%;
+      }
+
+      ion-slides {
+        ion-slide {
+          display: flex;
         }
       }
     }

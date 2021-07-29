@@ -27,13 +27,13 @@ export class ProfilPage implements OnInit {
       message: 'Loading...'
     });
     await loading.present();
-    await this.api.getData('getTentang')
+    await this.api.getData('Tentang')
       .subscribe(res => {
         this.responseData=res;
-        console.log(res);
+        console.log(this.responseData.data);
 
-        if(this.responseData.getTentang){
-          this.getTentang=this.responseData.getTentang;
+        if(this.responseData){
+          this.getTentang=this.responseData.data;
           loading.dismiss();
         }
         else{

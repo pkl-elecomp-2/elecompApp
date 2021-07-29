@@ -33,6 +33,39 @@
     <div class="c-galeri">
       <div class="galeri">
       <ion-searchbar placeholder="Pencarian" [(ngModel)]="textCari" (ionInput)="cariOnInput()" (ionCancel)="cariOnCancel()" (keypress)="inputPress($event)"></ion-searchbar>
+      <div class="form-tiket">
+        <h4>Buka Tiket</h4>
+        <form action="#">
+          <div>
+            <h6>Nama</h6>
+            <ion-input value="Elecomp" disabled></ion-input>
+          </div>
+          <div>
+            <h6>Email</h6>
+            <ion-input type="email" placeholder="Email"></ion-input>
+          </div>
+          <div>
+            <h6>Subjek</h6>
+            <ion-input type="text" placeholder="Subjek"></ion-input>
+          </div>
+          <h6>Level</h6>
+          <ion-select value="low">
+            <ion-select-option value="low">Low</ion-select-option>
+            <ion-select-option value="medium">Medium</ion-select-option>
+            <ion-select-option value="high">High</ion-select-option>
+            <ion-select-option value="urgent">Urgent</ion-select-option>
+          </ion-select>
+          <div>
+            <h6>Pesan</h6>
+            <ion-textarea rows="6" cols="20" placeholder="Pesan"></ion-textarea>
+          </div>
+          <div>
+            <input type="file">
+          </div>
+          <ion-button style="color: white;" expand="block" type="submit">Submit</ion-button>
+        </form>
+      </div>
+
       <div class="list-tiket">
         <h4>List Tiket</h4>
         <ion-grid>
@@ -68,38 +101,6 @@
         </ion-grid>
       </div>
 
-      <div class="form-tiket">
-        <h4>Buka Tiket</h4>
-        <form action="#">
-          <div>
-            <h6>Nama</h6>
-            <ion-input value="Elecomp" disabled></ion-input>
-          </div>
-          <div>
-            <h6>Email</h6>
-            <ion-input type="email" placeholder="Email"></ion-input>
-          </div>
-          <div>
-            <h6>Subjek</h6>
-            <ion-input type="text" placeholder="Subjek"></ion-input>
-          </div>
-          <h6>Level</h6>
-          <ion-select value="low">
-            <ion-select-option value="low">Low</ion-select-option>
-            <ion-select-option value="medium">Medium</ion-select-option>
-            <ion-select-option value="high">High</ion-select-option>
-            <ion-select-option value="urgent">Urgent</ion-select-option>
-          </ion-select>
-          <div>
-            <h6>Pesan</h6>
-            <ion-textarea rows="6" cols="20" placeholder="Pesan"></ion-textarea>
-          </div>
-          <div>
-            <input type="file">
-          </div>
-          <ion-button style="color: white;" expand="block" type="submit">Submit</ion-button>
-        </form>
-      </div>
       </div>
     </div>
   </ion-content>

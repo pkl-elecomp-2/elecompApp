@@ -23,10 +23,12 @@
   </div>
 
     <div style="display: block;">
+      <div class="title">
+        <b>Layanan</b>
+      </div>
       <div class="card-container">
-        
-        <div class="card-layanan">
-          <img src="../../../assets/img/layanan/layanan01.png" />
+        <div class="card-layanan" *ngFor="let data of getLayanan">
+          <img [src]="serverUrlAsset + data.img_layanan" [alt]="data.deskripsi_long_layanan"/>
           <div>
             <h6>Pengembangan Sistem Informasi (Customize)</h6>
           </div>
@@ -34,60 +36,10 @@
             Elecomp Indonesia menyediakan Jasa Pengembangan Sistem Informasi Yang Bisa di Customize Sesuai Dengan Kebutuhan Client.
           </p>
         </div>
-
-        <div class="card-layanan">
-          <img src="../../../assets/img/layanan/layanan02.png" />
-          <div>
-            <h6>Jasa Pembuatan WebGIS (Website Sistem Informasi Geografis)</h6>
-          </div>
-          <p>
-            Elecomp Indonesia menyediakan Jasa Pembuatan WebGIS (Website Sistem Informasi Geografis / Geographic Information System).
-          </p>
-        </div>
-
-        <div class="card-layanan">
-          <img src="../../../assets/img/layanan/layanan03.png" />
-          <div>
-            <h6>Jasa Pembuatan Website Toko Online / E-Commerce</h6>
-          </div>
-          <p>
-            Elecomp Indonesia menyediakan Jasa Pembuatan Website Toko Online / E-Commerce yang dapat digunakan untuk berjualan secara online.
-          </p>
-        </div>
-
-        <div class="card-layanan">
-          <img src="../../../assets/img/layanan/layanan04.png" />
-          <div>
-            <h6>Pelatihan dan Pendampingan Digital Marketing</h6>
-          </div>
-          <p>
-            Elecomp Indonesia menyediakan jasa Pelatihan dan Pendampingan Digital Marketing (Pemasaran Digital) untuk Perusahaan Swasta, Pemerintahan, Pendidikan, Komunitas, UMKM, dan lain-lain.
-          </p>
-        </div>
-
-        <div class="card-layanan">
-          <img src="../../../assets/img/layanan/layanan05.png" />
-          <div>
-            <h6>Jasa Pembuatan Aplikasi Mobile (Android dan IOS)</h6>
-          </div>
-          <p>
-            Elecomp Indonesia menyediakan Jasa Pembuatan Aplikasi Mobile Android dan IOS untuk Perusahaan Swasta, Pemerintahan, Pendidikan, Komunitas, UMKM, dan lain-lain.
-          </p>
-        </div>
-
-        <div class="card-layanan">
-          <img src="../../../assets/img/layanan/layanan06.png" />
-          <div>
-            <h6>Jasa Pembuatan Website Company Profile Profesional</h6>
-          </div>
-          <p>
-            Elecomp Indonesia menyediakan Jasa Pembuatan Website Company Profile Profesional, mulai dari Website Perusahaan Swasta, Pemerintahan, Pendidikan, Komunitas, UMKM, dan lain-lain.
-          </p>
-        </div>
       </div>
     </div>
 
-  <div class="c-promo">
+  <!-- <div class="c-layanan">
     <div class="title">
       <b>Layanan</b>
     </div>
@@ -102,7 +54,7 @@
         </ion-card-content>
       </ion-slide>
     </ion-slides>
-  </div>
+  </div> -->
 
   <div class="c-promo">
     <div class="title">
