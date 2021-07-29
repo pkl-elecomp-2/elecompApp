@@ -24,6 +24,10 @@ const routes: Routes = [
             path: '',
             loadChildren: () => import('../pages/artikel/artikel.module').then( m => m.ArtikelPageModule )
           },
+          {
+            path: ':id',
+            loadChildren: () => import('../pages/detail-artikel/detail-artikel.module').then( m => m.DetailArtikelPageModule )
+          }
         ]
       },
       {
@@ -43,6 +47,15 @@ const routes: Routes = [
             path: '',
             loadChildren: () => import('../pages/profil/profil.module').then( m => m.ProfilPageModule )
           },
+        ]
+      },
+      {
+        path: 'promo',
+        children: [
+          {
+            path: ':id',
+            loadChildren: () => import('../pages/detail-promo/detail-promo.module').then( m => m.DetailPromoPageModule )
+          }
         ]
       }
     ]
