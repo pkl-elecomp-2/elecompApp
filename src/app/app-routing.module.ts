@@ -45,6 +45,18 @@ const routes: Routes = [
   {
     path: 'register',
     loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterPageModule)
+  },
+  {
+    path: 'tiket',
+    loadChildren: () => import('./pages/tiket/tiket.module').then( m => m.TiketPageModule)
+  },
+  {
+    path: 'editClient',
+    loadChildren: () => import('./pages/edit-client/edit-client.module').then( m => m.EditClientPageModule)
+  },
+  {
+    path: 'survey',
+    loadChildren: () => import('./pages/survey/survey.module').then( m => m.SurveyPageModule)
   }
 
 ];

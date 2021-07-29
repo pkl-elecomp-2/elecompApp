@@ -1,0 +1,107 @@
+<!-- <ion-header>
+    <ion-toolbar>
+      <ion-title>
+        Artikel
+      </ion-title>
+    </ion-toolbar>
+  </ion-header> -->
+
+  <ion-content>
+    <div class="c-top">
+      <div class="c-content"></div>
+      <div class="content">
+        <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+          <ion-refresher-content
+            pullingIcon="chevron-down-circle-outline"
+            pullingText="Pull to refresh"
+            refreshingSpinner="circles"
+            refreshingText="Refreshing..."
+          >
+          </ion-refresher-content>
+        </ion-refresher>
+        <div routerLink="/tab/member">
+          <ion-icon color="primary" name="arrow-back-outline"></ion-icon>
+        </div>
+        <div class="logo">Tiket</div>
+        <div><ion-icon name="alert-circle-outline" routerLink="/tentang"></ion-icon></div>
+        <!-- <div>
+            <ion-searchbar (ionInput)="FilterJSONData($artikel)"></ion-searchbar>
+          </div> -->
+      </div>
+    </div>
+  
+    <div class="c-galeri">
+      <div class="galeri">
+      <ion-searchbar placeholder="Pencarian" [(ngModel)]="textCari" (ionInput)="cariOnInput()" (ionCancel)="cariOnCancel()" (keypress)="inputPress($event)"></ion-searchbar>
+      <div class="form-tiket">
+        <h4>Buka Tiket</h4>
+        <form action="#">
+          <div>
+            <h6>Nama</h6>
+            <ion-input value="Elecomp" disabled></ion-input>
+          </div>
+          <div>
+            <h6>Email</h6>
+            <ion-input type="email" placeholder="Email"></ion-input>
+          </div>
+          <div>
+            <h6>Subjek</h6>
+            <ion-input type="text" placeholder="Subjek"></ion-input>
+          </div>
+          <h6>Level</h6>
+          <ion-select value="low">
+            <ion-select-option value="low">Low</ion-select-option>
+            <ion-select-option value="medium">Medium</ion-select-option>
+            <ion-select-option value="high">High</ion-select-option>
+            <ion-select-option value="urgent">Urgent</ion-select-option>
+          </ion-select>
+          <div>
+            <h6>Pesan</h6>
+            <ion-textarea rows="6" cols="20" placeholder="Pesan"></ion-textarea>
+          </div>
+          <div>
+            <input type="file">
+          </div>
+          <ion-button style="color: white;" expand="block" type="submit">Submit</ion-button>
+        </form>
+      </div>
+
+      <div class="list-tiket">
+        <h4>List Tiket</h4>
+        <ion-grid>
+          <ion-row>
+            <ion-col style="border-top: 2px solid gray;">
+              <p>No</p>
+            </ion-col>
+            <ion-col style="border-top: 2px solid gray;">
+              <p>Subject</p>
+            </ion-col>
+            <ion-col style="border-top: 2px solid gray;">
+              <p>Status</p>
+            </ion-col>
+            <ion-col style="border-top: 2px solid gray;">
+              <p>Date</p>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <p>1</p>
+            </ion-col>
+            <ion-col>
+              <p style="color: var(--ion-color-primary);">#00000002
+                Kok error</p>
+            </ion-col>
+            <ion-col>
+              <p>Awaiting your Reply</p>
+            </ion-col>
+            <ion-col>
+              <p>27-05-2021</p>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+
+      </div>
+    </div>
+  </ion-content>
+  

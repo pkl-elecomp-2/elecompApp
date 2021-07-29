@@ -19,32 +19,33 @@
           >
           </ion-refresher-content>
         </ion-refresher>
-        <div class="logo">Member</div>
+        <div class="logo">Client</div>
         <div><ion-icon name="alert-circle-outline" routerLink="/tentang"></ion-icon></div>
         <!-- <div>
             <ion-searchbar (ionInput)="FilterJSONData($artikel)"></ion-searchbar>
           </div> -->
       </div>
     </div>
-  
-    <div class="c-galeri">
-      <div class="galeri">
-      <ion-searchbar placeholder="Pencarian" [(ngModel)]="textCari" (ionInput)="cariOnInput()" (ionCancel)="cariOnCancel()" (keypress)="inputPress($event)"></ion-searchbar>
-      <ion-item button *ngFor="let item of (results | async)" [routerLink]="['/', 'listmember', item.id_member]">
-      {{item.nama_member}}
-      </ion-item>
-      <div *ngFor="let data of getMemberUI" (click)="openDetail(data)">
-        <ion-card>
-          <!-- <ion-avatar> -->
-            <img [src]="data.foto_kta === '' || data.foto_kta === null? 'assets/img/image.jpeg' : serverUrlAsset + data.foto_kta">
-          <!-- </ion-avatar> -->
-          <ion-card-header>
-              <h3>{{data.nama_member}}</h3>
-              <p>{{data.profesi_member}}</p>
-          </ion-card-header>
-        </ion-card>
+
+    <div class="body-content">
+      <div class="profil-user">
+        <img src="../../../assets/img/team-1.jpg" alt="">
+        <h4>{{namaMember}}</h4>
       </div>
-      </div>
+      <div class="card-container">
+        <div class="card" routerLink="/tiket">
+          <ion-icon name="ticket-outline"></ion-icon>
+          <h6>Tiket</h6>
+        </div>
+        <div class="card" routerLink="/editClient">
+          <ion-icon name="person-circle-outline"></ion-icon>
+          <h6>Edit Profil</h6>
+        </div>
+        <div class="card" routerLink="/survey">
+          <ion-icon name="chatbox-ellipses-outline"></ion-icon>
+          <h6>Kirim Survey</h6>
+        </div>
+      </div>   
     </div>
   </ion-content>
   

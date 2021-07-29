@@ -1,119 +1,70 @@
 <ion-content>
-  <div class="c-top">
-    <div class="c-content"></div>
-    <div class="content">
-      <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
-        <ion-refresher-content
-          pullingIcon="chevron-down-circle-outline"
-          pullingText="Pull to refresh"
-          refreshingSpinner="circles"
-          refreshingText="Refreshing..."
-        >
-        </ion-refresher-content>
-      </ion-refresher>
+  <div class="header">
+    <div class="header-space"></div>
+    <div class="header-content">
       <div class="logo">
         <img src="../../../assets/img/logo.jpg" />
       </div>
       <div>
-        <ion-icon name="log-in-outline" routerLink="/login"></ion-icon>
+        <!-- <ion-icon *ngIf="checkIcon(); else showThis" name="log-out-outline" (click)="logOut()"></ion-icon> -->
+        <!-- <ng-template #showThis> -->
+          <ion-icon name="log-in-outline" routerLink="/login"></ion-icon>
+        <!-- </ng-template> -->
       </div>
     </div>  
   </div>
 
   <div class="c-banner">
-    <ion-slides pager="true" [options]="bannerSlide" *ngIf="getSlider">
+    <ion-slides pager="true" [options]="oneItemSlide" *ngIf="getSlider">
       <ion-slide *ngFor="let data of getSlider">
-         <img [src]="data.foto_slider === '' || data.foto_slider === null? 'assets/img/image.jpeg' : serverUrlAsset + data.foto_slider">
+        <img [src]="serverUrlAsset + data.foto_slider" [alt]="data.id_slider" />
       </ion-slide>
     </ion-slides>
   </div>
+
+    <div style="display: block;">
+      <div class="title">
+        <b>Layanan</b>
+      </div>
+      <div class="card-container">
+        <div class="card-layanan" *ngFor="let data of getLayanan">
+          <img [src]="serverUrlAsset + data.img_layanan" [alt]="data.deskripsi_long_layanan"/>
+          <div>
+            <h6>Pengembangan Sistem Informasi (Customize)</h6>
+          </div>
+          <p>
+            Elecomp Indonesia menyediakan Jasa Pengembangan Sistem Informasi Yang Bisa di Customize Sesuai Dengan Kebutuhan Client.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  <!-- <div class="c-layanan">
+    <div class="title">
+      <b>Layanan</b>
+    </div>
+    <ion-slides pager="true" [options]="oneItemSlide" *ngIf="getLayanan">
+      <ion-slide *ngFor="let data of getLayanan">
+        <img [src]="serverUrlAsset + data.img_layanan" [alt]="data.deskripsi_long_layanan" style="width:50px"/>
+        <ion-card-header>
+          <ion-card-title>{{ data.deskripsi_layanan }}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <p>{{ data.deskripsi_long_layanan }}</p>
+        </ion-card-content>
+      </ion-slide>
+    </ion-slides>
+  </div> -->
 
   <div class="c-promo">
     <div class="title">
       <b>Promo</b>
-      <div class="d-title" routerLink="/listpromo">Lihat Semua</div>
+      <!-- <div class="d-title" routerLink="/listpromo">Lihat Semua</div> -->
     </div>
-    <ion-slides pager="true" [options]="promoSlide" *ngIf="getPromo">
+    <ion-slides pager="true" [options]="dragSlide" *ngIf="getPromo">
       <ion-slide *ngFor="let data of getPromo">
-        <!-- <img
-          (click)="openDetailPromo(data)"
-          src="https://elecompindonesia.com/locusid/assets/img/{{data.poster_promo}}"
-        /> -->
-        <img (click)="openDetailPromo(data)" [src]="data.poster_promo === '' || data.poster_promo === null? 'assets/img/image.jpeg' : serverUrlAsset + data.poster_promo">
+        <img [src]="serverUrlAsset + data.poster_promo">
       </ion-slide>
     </ion-slides>
-  </div>
-
-  <div class="c-event">
-    <div class="title">
-      <b>Event</b>
-      <div class="d-title" routerLink="/listevent">Lihat Semua</div>
-    </div>
-    <ion-slides pager="true" [options]="eventSlide" *ngIf="getEvent">
-      <ion-slide *ngFor="let data of getEvent">
-        <!-- <img
-          (click)="openDetailEvent(data)"
-          src="https://elecompindonesia.com/locusid/assets/img/{{data.poster_event}}"
-        /> -->
-        <img (click)="openDetailEvent(data)" [src]="data.poster_event === '' || data.poster_event === null? 'assets/img/image.jpeg' : serverUrlAsset + data.poster_event">
-      </ion-slide>
-    </ion-slides>
-  </div>
-
-  <div class="c-galeri">
-    <div class="title">
-      <b>Galeri Foto</b>
-      <div class="d-title" routerLink="/listgaleri">Lihat Semua</div>
-    </div>
-    <div class="galeri">
-      <div *ngFor="let data of getGaleri">
-       <!--  <img
-          (click)="openDetailGaleri(data)"
-          src="https://elecompindonesia.com/locusid/assets/img/{{data.foto_galeri}}"
-        /> -->
-        <img (click)="openDetailGaleri(data)" [src]="data.foto_galeri === '' || data.foto_galeri === null? 'assets/img/image.jpeg' : serverUrlAsset + data.foto_galeri">
-      </div>
-    </div>
-  </div>
-
-  <div class="c-survey">
-    <div class="title"><b>Survey</b></div>
-    <div>
-      Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-      Lorem Ipsum has been the industry's standard dummy text ever since the
-      1500s
-    </div>
-    <form [formGroup]="formSubmit" (ngSubmit)="survey()">
-      <ion-item lines="none">
-        <ion-label position="floating">Nama</ion-label>
-          <ion-input type="text" formControlName="nama" [(ngModel)]="nama" required></ion-input>
-      </ion-item>
-
-      <ion-item lines="none">
-        <ion-label color="dark" position="floating">Email</ion-label>
-        <ion-input type="text" formControlName="email" [(ngModel)]="email" required></ion-input>
-      </ion-item>
-
-      <ion-item lines="none">
-        <ion-label position="floating">No. Telepon</ion-label>
-        <ion-input type="text" formControlName="noTlp" [(ngModel)]="noWa" required></ion-input>
-      </ion-item>
-
-      <ion-item lines="none">
-        <ion-label position="floating">Kritik/Saran</ion-label>
-        <ion-textarea rows="6" type="text" formControlName="deskripsiSurvey" [(ngModel)]="deskripsiSurvey" required></ion-textarea>
-      </ion-item>
-      <br>
-
-        <re-captcha (resolved)="captchaResolved($event)" siteKey="6LdQ6tgZAAAAALpjlUUZPmdlEZ-jM7QLljDiouCG" padding></re-captcha>
-      
-      <button type="submit" (click)="presentAlert()" class="btn" [disabled]="!captchaPassed || !nama || !no_tlp">
-        
-        <div *ngIf="!isLoading">KIRIM</div>
-        
-        <ion-spinner *ngIf="isLoading" color="white"></ion-spinner>
-      </button>
-      <br />
-    </form>
   </div>
 </ion-content>

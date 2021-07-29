@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 
 const httpOptions = {
   // eslint-disable-next-line @typescript-eslint/naming-convention
@@ -16,13 +16,16 @@ export class ApiService {
   public serverUrlAsset;
 
   constructor(private http: HttpClient) {
-    this.serverUrl = 'https://elecompindonesia.com/apilocus/data/index.php';
-    this.serverUrlAsset = 'https://elecompindonesia.com/locus/assets/img/';
+    this.serverUrl = 'http://localhost:8888/elecompAPI3';
+    this.serverUrlAsset = 'https://elecompindonesia.com/assets/img/';
    }
 
   getData(type: any): Observable<any> {
-    // console.log(type);
     return this.http.get(`${this.serverUrl}/${type}`);
+  }
+
+  login(username: any, password: any): Observable<any> {
+    return this.http.get(`${this.serverUrl}/Client?username=${username}&password=${password}`);
   }
 
   postData(type: any, credentials): Observable<any> {

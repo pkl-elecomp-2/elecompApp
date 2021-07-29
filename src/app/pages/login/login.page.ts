@@ -1,8 +1,9 @@
+import { ApiService } from './../../services/api.service';
 import { ToastService } from './../../services/toast.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -13,11 +14,10 @@ export class LoginPage implements OnInit {
 
   username: string;
   password: string;
-  // eslint-disable-next-line @typescript-eslint/no-inferrable-types
   isChecked: boolean = true;
 
   constructor(
-    private http: HttpClient,
+    private api: ApiService,
     private toastService: ToastService,
     private router: Router,
     private storage: Storage
@@ -27,35 +27,21 @@ export class LoginPage implements OnInit {
 
   // Login
   onLogin() {
-    // const headers = new HttpHeaders()
-    // .set('Content-Type', 'application/x-www-form-urlencoded');
-
-    // const params = new HttpParams()
-    // .set('userEmail', this.username)
-    // .set('userPassword', this.password);
-
-    if (this.username === 'elecomp' && this.password === 'elecomp123') {
-      this.toastService.showSuccess('Login success!');
-      this.reRoute();
-      if (this.isChecked) {
-        this.saveStorage(this.username, this.isChecked);
-      } else {
-        this.saveStorage(this.username, this.isChecked);
-      }
+    // Check if username and password is empty
+    console.log(`${typeof(this.username)} with value ${this.username}`);
+    if (this.username === undefined || this.password === undefined) {
+      this.toastService.showError('Username atau Password tidak boleh kosong');
     } else {
-      this.toastService.showError('Login Failed: Invalid Username or Password');
+      return this.api.login(this.username,this.password).subscribe( (res: any) => {
+        if (res.status === 'success') {
+          this.toastService.showSuccess(res.message);
+          this.reRoute();
+          this.saveStorage(this.username, this.isChecked);
+        } else {
+          this.toastService.showError(res.message);
+        }
+      });
     }
-
-    // return this.http.post('http://localhost:8080/login', params, {headers}).subscribe((response: any) => {
-    //   this.storage.set('currentUser', response);
-    //   this.presentToast(response.messages);
-    //   this.reloadCurrentRoute();
-    //   this.username = '';
-    //   this.password = '';
-    // }, error => {
-    //   console.log(error);
-    //   this.presentToast(error);
-    // });
   }
 
   // Save to Local Storage
@@ -66,7 +52,7 @@ export class LoginPage implements OnInit {
 
   // When Login success redirect to
   private reRoute() {
-    const currentUrl = 'tab/profil';
+    const currentUrl = 'tab/beranda';
     this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
         this.router.navigate([currentUrl]);
     });

@@ -2,7 +2,7 @@
     <div class="c-top">
       <div class="c-content"></div>
       <div class="content">
-        <ion-refresher slot="fixed" (ionRefresh)="doRefresh()">
+        <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
           <ion-refresher-content
             pullingIcon="chevron-down-circle-outline"
             pullingText="Pull to refresh"
@@ -12,34 +12,14 @@
           </ion-refresher-content>
         </ion-refresher>
         <div class="logo">Artikel</div>
-        <!-- <div>
-            <ion-searchbar (ionInput)="FilterJSONData($artikel)"></ion-searchbar>
-          </div> -->
       </div>
     </div>
   
     <div class="c-galeri">
       <div class="galeri">
-        <div
-          *ngFor="let data of getArtikel"
-          (click)="openDetail(data)"
-          class="judul"
-        >
-          <!-- <table>
-            <tr>
-              <th rowspan="4">
-                <img [src]="data.foto_artikel === '' || data.foto_artikel === null? 'assets/img/image.jpeg' : serverUrlAsset + data.foto_artikel">
-              </th>
-              <td><b>{{data.judul_artikel}}</b></td>
-            </tr>
-            <tr>
-              <td>Tanggal : {{data.tanggal_artikel}}</td>
-            </tr>
-            <tr>
-              <td>Dilihat : {{data.artikel_dilihat}}x</td>
-            </tr>
-          </table> -->
-
+        
+        <div *ngFor="let data of getArtikel" (click)="openDetail(data.id_artikel)" class="judul">
+          
           <ion-card>
             <img [src]="data.foto_artikel === '' || data.foto_artikel === null ? 'assets/img/image.jpeg' : serverUrlAsset + data.foto_artikel">
             <ion-card-header>
@@ -56,8 +36,9 @@
           </ion-card>
 
         </div>
-  
+
       </div>
     </div>
+
   </ion-content>
   
