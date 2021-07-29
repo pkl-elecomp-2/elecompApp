@@ -39,31 +39,14 @@
       </div>
     </div>
 
-  <!-- <div class="c-layanan">
-    <div class="title">
-      <b>Layanan</b>
-    </div>
-    <ion-slides pager="true" [options]="oneItemSlide" *ngIf="getLayanan">
-      <ion-slide *ngFor="let data of getLayanan">
-        <img [src]="serverUrlAsset + data.img_layanan" [alt]="data.deskripsi_long_layanan" style="width:50px"/>
-        <ion-card-header>
-          <ion-card-title>{{ data.deskripsi_layanan }}</ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-          <p>{{ data.deskripsi_long_layanan }}</p>
-        </ion-card-content>
-      </ion-slide>
-    </ion-slides>
-  </div> -->
-
   <div class="c-promo">
     <div class="title">
       <b>Promo</b>
-      <!-- <div class="d-title" routerLink="/listpromo">Lihat Semua</div> -->
+      <div class="d-title" routerLink="/listpromo">Lihat Semua</div>
     </div>
     <ion-slides pager="true" [options]="dragSlide" *ngIf="getPromo">
       <ion-slide *ngFor="let data of getPromo">
-        <img [src]="serverUrlAsset + data.poster_promo">
+        <img [src]="serverUrlAsset + data.poster_promo" (click)="detailPromo(data.id_promo)">
       </ion-slide>
     </ion-slides>
   </div>

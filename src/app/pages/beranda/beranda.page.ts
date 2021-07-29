@@ -1,8 +1,7 @@
-import { Component, NgZone, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { LoadingController, NavController } from '@ionic/angular';
 import { ApiService } from 'src/app/services/api.service';
-import { Router, NavigationExtras } from '@angular/router';
-import { FormBuilder, FormGroup, Validators, FormControl, FormGroupDirective, NgForm} from '@angular/forms';
+import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 
@@ -55,6 +54,24 @@ export class BerandaPage implements OnInit {
     this.dataLayanan();
   }
 
+  async dataSlider() {
+    const loading = await this.loadingController.create({
+      spinner: 'dots',
+      message: 'Please Wait...',
+    });
+    await loading.present();
+
+    await this.api.getData('Beranda').subscribe( (res) => {
+      this.getSlider = (res.data.length > 0) ? res.data : '';
+      loading.dismiss();
+      },
+      (err) => {
+        console.log(err);
+        loading.dismiss();
+      }
+    );
+  }
+
   async dataLayanan() {
     await this.api.getData('Beranda/layanan').subscribe( (res) => {
       this.getLayanan = (res.data.length > 0) ? res.data : '';
@@ -65,36 +82,9 @@ export class BerandaPage implements OnInit {
     );
   }
 
-  async dataSlider() {
-    const loading = await this.loadingController.create({
-      spinner: 'dots',
-      message: 'Please Wait...',
-    });
-    await loading.present();
-
-    await this.api.getData('Beranda').subscribe( (res) => {
-        if (res.data) {
-          this.getSlider = res.data;
-          loading.dismiss();
-        } else {
-          this.getSlider = '';
-          loading.dismiss();
-        }
-      },
-      (err) => {
-        console.log(err);
-        loading.dismiss();
-      }
-    );
-  }
-
   async dataPromo() {
-    this.api.getData('Promo').subscribe( (res) => {
-        if (res.activePromo) {
-          this.getPromo = res.activePromo;
-        } else {
-          this.getPromo = '';
-        }
+    await this.api.getData('Promo').subscribe( (res) => {
+      this.getPromo = (res.activePromo) ? res.activePromo : '';
       },
       (err) => {
         console.log(err);
@@ -102,13 +92,8 @@ export class BerandaPage implements OnInit {
     );
   }
 
-  openDetailPromo(idPromo: number) {
-    const navExtras: NavigationExtras = {
-      state: {
-        idpromo: idPromo,
-      },
-    };
-    this.router.navigate(['detailpromo'], navExtras);
+  detailPromo(idPromo: number) {
+    this.router.navigateByUrl(`tab/promo/${idPromo}`);
   }
 
   checkIcon() {
