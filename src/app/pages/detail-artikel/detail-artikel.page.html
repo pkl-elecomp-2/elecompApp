@@ -28,15 +28,17 @@
     <ion-text>
       <p>{{ artikel.deskripsi_artikel}}</p>
     </ion-text>
-    <ion-label class="createdBy">
-        <p>Penulis :</p>
-        <p>Fajar Ali <br>
-          Dosen Universitas
-        </p>
-    </ion-label>
+    <!-- <ion-label class="createdBy">
+        <p>Penulis: </p>
+    </ion-label> -->
   </div>
 
   <h2>Comments</h2>
+  
+  <ion-item>
+    <ion-label position="stacked">Add Comment as SomeOne</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
 
   <ion-list>
     <ion-item *ngFor="let comment of comments">
