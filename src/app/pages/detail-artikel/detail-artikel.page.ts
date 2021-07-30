@@ -56,7 +56,9 @@ export class DetailArtikelPage implements OnInit {
   }
 
   doRefresh(event) {
-    console.log('Begin async operation');
+    this.dataArtikel(this.artikelId);
+    this.dataComment(this.artikelId);
+    event.target.complete();
   }
 
   formatDate(date) {
@@ -71,6 +73,5 @@ export class DetailArtikelPage implements OnInit {
         {day = '0' + day;}
 
     return [day, month, year].join('-');
-}
-
+  }
 }
