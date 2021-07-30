@@ -1,78 +1,55 @@
-<!-- <ion-header>
-    <ion-toolbar>
-      <ion-title>
-        Artikel
-      </ion-title>
-    </ion-toolbar>
-  </ion-header> -->
-
-  <ion-content>
-    <div class="c-top">
-      <div class="c-content"></div>
-      <div class="content">
-        <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
-          <ion-refresher-content
-            pullingIcon="chevron-down-circle-outline"
-            pullingText="Pull to refresh"
-            refreshingSpinner="circles"
-            refreshingText="Refreshing..."
-          >
-          </ion-refresher-content>
-        </ion-refresher>
-        <div routerLink="/tab/member">
-          <ion-icon color="primary" name="arrow-back-outline"></ion-icon>
-        </div>
-        <div class="logo">Edit Profil</div>
-        <div><ion-icon name="alert-circle-outline" routerLink="/tentang"></ion-icon></div>
-        <!-- <div>
-            <ion-searchbar (ionInput)="FilterJSONData($artikel)"></ion-searchbar>
-          </div> -->
+<ion-content>
+  <div class="c-top">
+    <div class="c-content"></div>
+    <div class="content">
+      <div routerLink="/tab/member">
+        <ion-icon color="primary" name="arrow-back-outline"></ion-icon>
       </div>
+      <div class="logo">Edit Profil</div>
+      <div><ion-icon name="alert-circle-outline" routerLink="/tentang"></ion-icon></div>
     </div>
-  
-    <div class="c-edit">
-      <div class="edit">
+  </div>
 
-      <div class="form-tiket">
-        <div class="client-foto">
-          <img src="../../../assets/img/team-1.jpg" alt="">
+  <div class="c-edit">
+    <div class="edit">
+
+    <div class="form-tiket">
+      <div class="client-foto">
+        <!-- <img [src]="client.foto_kta === '' || client.foto_kta === null || client.foto_kta === undefined ? '../../../assets/img/default-profile.png' : client.foto_kta" alt=""> -->
+        <img src="../../../assets/img/default-profile.png" alt="">
+      </div>
+      <form action="#">
+        <div>
+          <h6>Nama</h6>
+          <ion-input [value]="name" disabled></ion-input>
         </div>
-        <form action="#">
-          <div>
-            <h6>Nama</h6>
-            <ion-input value="Elecomp" disabled></ion-input>
-          </div>
-          <div>
-            <h6>Username</h6>
-            <ion-input value="elecomp" disabled></ion-input>
-          </div>
-          <div>
-            <h6>Email</h6>
-            <ion-input type="email" placeholder="Email" value="elecomp@gmail.com"></ion-input>
-          </div>
-          <div>
-            <h6>Ganti Password</h6>
-            <ion-input type="password" placeholder="Password" value="elecomp123"></ion-input>
-          </div>
-          <div>
-            <h6>Ulangi Password</h6>
-            <ion-input type="password" placeholder="Password" value="elecomp123"></ion-input>
-          </div>
-          <div>
-            <h6>Foto</h6>
-            <input type="file">
+        <div>
+          <h6>Email</h6>
+          <ion-input type="email" placeholder="Email" [value]="email" disabled></ion-input>
+        </div>
+        <div>
+          <h6>Ganti Password</h6>
+          <ion-input type="password" placeholder="Password"></ion-input>
+        </div>
+        <div>
+          <h6>Ulangi Password</h6>
+          <ion-input type="password" placeholder="Password"></ion-input>
+        </div>
+        <div>
+          <h6>Foto</h6>
+          <input type="file">
 
-            <div class="alert">
-              <p style="font-weight: 700;">Peringatan</p>
-              <p>Max Dimension : 800 x 533 (px) <br>
-                Allowed Image : JPG | PNG</p>
-            </div>
-
+          <div class="alert">
+            <p style="font-weight: 700;">Peringatan</p>
+            <p>Max Dimension : 800 x 533 (px) <br>
+              Allowed Image : JPG | PNG</p>
           </div>
-          <ion-button style="color: white;" expand="block" type="submit">Submit</ion-button>
-        </form>
-      </div>
-      </div>
+
+        </div>
+        <ion-button style="color: white;" expand="block" type="submit">Submit</ion-button>
+      </form>
     </div>
-  </ion-content>
+    </div>
+  </div>
+</ion-content>
   

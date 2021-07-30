@@ -1,4 +1,7 @@
+import { Storage } from '@ionic/storage-angular';
 import { Component, OnInit } from '@angular/core';
+import { LoadingController } from '@ionic/angular';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-edit-client',
@@ -7,9 +10,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditClientPage implements OnInit {
 
-  constructor() { }
+  client: any;
+  name: any;
+  email:any;
 
-  ngOnInit() {
+  serverUrlAsset = this.api.serverUrlAsset;
+
+  constructor(
+    public api: ApiService,
+    public loadingController: LoadingController,
+    private storage: Storage
+  ) { }
+
+  ngOnInit() {}
+
+  ionViewWillEnter(){
+    this.dataClient();
   }
 
+  async dataClient() {
+    this.storage.get('dataUser').then( (data) => {
+      this.name = data.nama_member;
+      this.email = data.email;
+    });
+  }
 }
