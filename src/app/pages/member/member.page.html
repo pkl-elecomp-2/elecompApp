@@ -1,51 +1,42 @@
-<!-- <ion-header>
-    <ion-toolbar>
-      <ion-title>
-        Artikel
-      </ion-title>
-    </ion-toolbar>
-  </ion-header> -->
-
-  <ion-content>
-    <div class="c-top">
-      <div class="c-content"></div>
-      <div class="content">
-        <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
-          <ion-refresher-content
-            pullingIcon="chevron-down-circle-outline"
-            pullingText="Pull to refresh"
-            refreshingSpinner="circles"
-            refreshingText="Refreshing..."
-          >
-          </ion-refresher-content>
-        </ion-refresher>
-        <div class="logo">Client</div>
-        <div><ion-icon name="alert-circle-outline" routerLink="/tentang"></ion-icon></div>
-        <!-- <div>
-            <ion-searchbar (ionInput)="FilterJSONData($artikel)"></ion-searchbar>
-          </div> -->
-      </div>
+<ion-content>
+  <div class="c-top">
+    <div class="c-content"></div>
+    <div class="content">
+      <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content
+          pullingIcon="chevron-down-circle-outline"
+          pullingText="Pull to refresh"
+          refreshingSpinner="circles"
+          refreshingText="Refreshing..."
+        >
+        </ion-refresher-content>
+      </ion-refresher>
+      <div class="logo">Client</div>
     </div>
+  </div>
 
-    <div class="body-content">
-      <div class="profil-user">
-        <img src="../../../assets/img/team-1.jpg" alt="">
-        <h4>{{namaMember}}</h4>
-      </div>
-      <div class="card-container">
-        <div class="card" routerLink="/tiket">
-          <ion-icon name="ticket-outline"></ion-icon>
-          <h6>Tiket</h6>
-        </div>
-        <div class="card" routerLink="/editClient">
-          <ion-icon name="person-circle-outline"></ion-icon>
-          <h6>Edit Profil</h6>
-        </div>
-        <div class="card" routerLink="/survey">
-          <ion-icon name="chatbox-ellipses-outline"></ion-icon>
-          <h6>Kirim Survey</h6>
-        </div>
-      </div>   
+  <div class="body-content">
+    <div class="profil-user">
+      <img [src]="memberPhoto === '' || memberPhoto === null ? '../../../assets/img/default-profile.png' : memberPhoto" alt="">
+      <h4>{{ memberName }}</h4>
     </div>
-  </ion-content>
+    <div class="card-container">
+      
+      <div class="card" routerLink="/tiket">
+        <ion-icon name="ticket-outline"></ion-icon>
+        <h6>Tiket</h6>
+      </div>
+
+      <div class="card" routerLink="/editClient">
+        <ion-icon name="person-circle-outline"></ion-icon>
+        <h6>Edit Profil</h6>
+      </div>
+      
+      <div class="card" routerLink="/survey">
+        <ion-icon name="chatbox-ellipses-outline"></ion-icon>
+        <h6>Kirim Survey</h6>
+      </div>
+    </div>   
+  </div>
+</ion-content>
   
