@@ -49,15 +49,6 @@ const routes: Routes = [
           },
         ]
       },
-      {
-        path: 'promo',
-        children: [
-          {
-            path: ':id',
-            loadChildren: () => import('../pages/detail-promo/detail-promo.module').then( m => m.DetailPromoPageModule )
-          }
-        ]
-      }
     ]
   },
   {

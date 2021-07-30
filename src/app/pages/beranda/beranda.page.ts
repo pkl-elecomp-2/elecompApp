@@ -52,6 +52,9 @@ export class BerandaPage implements OnInit {
     this.dataSlider();
     this.dataPromo();
     this.dataLayanan();
+
+    // DEBUG
+    console.log(this.checkIcon());
   }
 
   async dataSlider() {
@@ -92,29 +95,21 @@ export class BerandaPage implements OnInit {
     );
   }
 
-  detailPromo(idPromo: number) {
-    this.router.navigateByUrl(`tab/promo/${idPromo}`);
-  }
-
   checkIcon() {
-    let cek;
-    this.storage.get('user').then(val => cek = val);
-    if(cek) {
-      return true;
-    } else {
-      return false;
-    }
+    this.storage.get('user').then(val => {
+      return (val) ? true : false;
+    });
   }
 
   logOut() {
     this.storage.set('user', '');
-    // this.reloadCurrentRoute();
+    this.reloadCurrentRoute();
   }
 
-  // reloadCurrentRoute() {
-  //   const currentUrl = 'tab/profil';
-  //   this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
-  //       this.router.navigate([currentUrl]);
-  //   });
-  // }
+  reloadCurrentRoute() {
+    const currentUrl = 'tab/beranda';
+    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+        this.router.navigate([currentUrl]);
+    });
+  }
 }
