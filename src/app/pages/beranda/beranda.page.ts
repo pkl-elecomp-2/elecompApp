@@ -52,9 +52,9 @@ export class BerandaPage implements OnInit {
     this.dataSlider();
     this.dataPromo();
     this.dataLayanan();
-
+    this.checkIcon();
     // DEBUG
-    console.log(this.checkIcon());
+    console.log('icon : '+this.checkIcon());
   }
 
   async dataSlider() {
@@ -96,14 +96,28 @@ export class BerandaPage implements OnInit {
   }
 
   checkIcon() {
+    const login = document.getElementById('login');
+    const logout = document.getElementById('logout');
+    // eslint-disable-next-line arrow-body-style
     this.storage.get('user').then(val => {
-      return (val) ? true : false;
+      console.log(val ? true : false);
+
+      if(val) {
+        login.style.display = 'none';
+        logout.style.display ='block';
+      }else{
+        logout.style.display = 'none';
+        login.style.display = 'block';
+      }
+
     });
   }
 
   logOut() {
     this.storage.set('user', '');
-    this.reloadCurrentRoute();
+    window.location.reload();
+    // this.router.navigate(['tab/beranda']);
+    // this.reloadCurrentRoute();
   }
 
   reloadCurrentRoute() {

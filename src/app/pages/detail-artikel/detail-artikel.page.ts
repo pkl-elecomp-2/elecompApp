@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/member-ordering */
 import { ApiService } from 'src/app/services/api.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -14,12 +15,14 @@ export class DetailArtikelPage implements OnInit {
   artikel: any;
   comments: any;
 
+  // eslint-disable-next-line @typescript-eslint/member-ordering
   serverUrlAsset = this.api.serverUrlAsset;
 
   constructor(
-    private act: ActivatedRoute, 
+    private act: ActivatedRoute,
     public api: ApiService,
     public loadingController: LoadingController,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -38,7 +41,7 @@ export class DetailArtikelPage implements OnInit {
     await this.api.getData(`Artikel?id=${id}`).subscribe( (res) => {
       console.log(res.data[0]);
       this.artikel = (res.data[0]) ? res.data[0] : '';
-      loading.dismiss(); 
+      loading.dismiss();
       },
       (err) => {
         console.log(err);
@@ -73,5 +76,12 @@ export class DetailArtikelPage implements OnInit {
         {day = '0' + day;}
 
     return [day, month, year].join('-');
+  }
+
+  back(){
+      const currentUrl = 'tab/artikel';
+      this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+          this.router.navigate([currentUrl]);
+      });
   }
 }

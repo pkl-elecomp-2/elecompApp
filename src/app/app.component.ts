@@ -12,12 +12,14 @@ export class AppComponent {
 
     this.storage.get('isChecked').then( data => {
       // If user won't remember me
+      console.log(data);
       if (!data) {
         this.storage.set('user', '');
       }
     });
 
     this.storage.get('user').then(val => {
+      console.log(val);
       if(val === undefined || val === null) {
         this.storage.set('user', '');
       }

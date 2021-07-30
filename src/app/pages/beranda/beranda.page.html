@@ -9,7 +9,8 @@
         <!-- BUG -->
         <!-- <ion-icon *ngIf="checkIcon(); else showThis" name="log-out-outline" (click)="logOut()"></ion-icon> -->
         <!-- <ng-template #showThis> -->
-          <ion-icon name="log-in-outline" routerLink="/login"></ion-icon>
+          <ion-icon id="logout" name="log-out-outline" (click)="logOut()"></ion-icon>
+          <ion-icon id="login" name="log-in-outline" routerLink="/login"></ion-icon>
         <!-- </ng-template> -->
       </div>
     </div>  

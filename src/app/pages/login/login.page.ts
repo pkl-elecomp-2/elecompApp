@@ -12,6 +12,7 @@ export class LoginPage implements OnInit {
 
   username: string;
   password: string;
+  // eslint-disable-next-line @typescript-eslint/no-inferrable-types
   isChecked: boolean = true;
 
   constructor(
@@ -34,6 +35,10 @@ export class LoginPage implements OnInit {
           this.toastService.showSuccess(res.message);
           this.reRoute();
           this.saveStorage(this.username, this.isChecked, res.data);
+
+          document.getElementById('login').style.display = 'none';
+          document.getElementById('logout').style.display = 'block';
+
         } else {
           this.toastService.showError(res.message);
         }

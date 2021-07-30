@@ -36,6 +36,7 @@ export class ArtikelPage implements OnInit {
     });
     await loading.present();
     await this.api.getData('Artikel').subscribe( (res) => {
+      console.log(res);
       this.getArtikel = (res.data) ? res.data : '';
       loading.dismiss();
       },
