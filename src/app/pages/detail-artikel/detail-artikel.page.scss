@@ -82,9 +82,33 @@
         padding: 3%;
       }
 
+      re-captcha {
+        margin: 2% 0;
+      }
+
       ion-button {
         color: white;
         height: 5vh;
+      }
+    }
+
+    .card-comment {
+      border: 1px solid rgba($color: #000000, $alpha: 0.2);
+      margin-bottom: 2%;
+      display: flex;
+      flex-direction: column;
+      border-radius: 10px;
+
+      .comment-title {
+        display: flex;
+        justify-content: space-between;
+
+        p {
+          margin: 0;
+          margin-bottom: 2%;
+          font-size: 0.75em;
+          color: rgba($color: #000000, $alpha: 0.5);
+        }
       }
     }
   }

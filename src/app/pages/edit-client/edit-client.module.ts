@@ -13,7 +13,7 @@ import { EditClientPage } from './edit-client.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    EditClientPageRoutingModule
+    EditClientPageRoutingModule,
   ],
   declarations: [EditClientPage]
 })

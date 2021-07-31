@@ -18,7 +18,7 @@
         <!-- <img [src]="client.foto_kta === '' || client.foto_kta === null || client.foto_kta === undefined ? '../../../assets/img/default-profile.png' : client.foto_kta" alt=""> -->
         <img src="../../../assets/img/default-profile.png" alt="">
       </div>
-      <form action="#">
+      <div class="form">
         <div>
           <h6>Nama</h6>
           <ion-input [value]="name" disabled></ion-input>
@@ -29,11 +29,11 @@
         </div>
         <div>
           <h6>Ganti Password</h6>
-          <ion-input type="password" placeholder="Password"></ion-input>
+          <ion-input [value]="password" [(ngModel)]="password" type="password" placeholder="Password"></ion-input>
         </div>
         <div>
           <h6>Ulangi Password</h6>
-          <ion-input type="password" placeholder="Password"></ion-input>
+          <ion-input [value]="cPassword" [(ngModel)]="cPassword" type="password" placeholder="Password"></ion-input>
         </div>
         <div>
           <h6>Foto</h6>
@@ -46,8 +46,8 @@
           </div>
 
         </div>
-        <ion-button style="color: white;" expand="block" type="submit">Submit</ion-button>
-      </form>
+        <ion-button (click)="validation()" style="color: white;" expand="block">Submit</ion-button>
+      </div>
     </div>
     </div>
   </div>

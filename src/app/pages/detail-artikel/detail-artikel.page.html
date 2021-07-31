@@ -35,16 +35,19 @@
   <ion-item class="comment-container" lines="none">
     <ion-label position="stacked">Tambahkan komentar sebagai guest</ion-label>
     <ion-textarea [(ngModel)]="deskripsiKomentar" placeholder="tulis komentar" rows="6" cols="20"></ion-textarea>
-    <ion-button (click)="postComment()" expands="full">Kirim</ion-button>
+
+    <re-captcha (resolved)="captchaResolved($event)" siteKey="6LdQ6tgZAAAAALpjlUUZPmdlEZ-jM7QLljDiouCG"></re-captcha>
+
+    <ion-button (click)="checkCaptcha()" expands="full">Kirim</ion-button>
   </ion-item>
 
   <ion-list>
-    <ion-item *ngFor="let comment of comments">
-      <ion-label>
-        <h2>{{ comment.nama_komentar }}</h2>
-        <h3>{{ comment.tanggal_komentar }}</h3>
-        <p>{{ comment.deskripsi_komentar }}</p>
-      </ion-label>
-    </ion-item>
+    <div class="card-comment ion-padding" *ngFor="let comment of comments">
+      <div class="comment-title">
+        <p>{{ comment.nama_komentar }}</p>
+        <p>{{ comment.tanggal_komentar }}</p>
+      </div>
+      <h6>{{ comment.deskripsi_komentar }}</h6>
+    </div>
   </ion-list>
 </ion-content>

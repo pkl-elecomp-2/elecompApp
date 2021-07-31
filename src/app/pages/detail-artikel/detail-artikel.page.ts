@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/member-ordering */
 import { ApiService } from 'src/app/services/api.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, NgZone, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LoadingController } from '@ionic/angular';
 import { HttpParams } from '@angular/common/http';
@@ -26,6 +26,10 @@ export class DetailArtikelPage implements OnInit {
   // eslint-disable-next-line @typescript-eslint/member-ordering
   serverUrlAsset = this.api.serverUrlAsset;
 
+  // eslint-disable-next-line @typescript-eslint/no-inferrable-types
+  private captchaPassed: boolean = false;
+  private captchaResponse: string;
+
   constructor(
     private act: ActivatedRoute,
     public api: ApiService,
@@ -33,7 +37,8 @@ export class DetailArtikelPage implements OnInit {
     public loadingController: LoadingController,
     private router: Router,
     private storage: Storage,
-    private toastController: ToastController
+    private toastController: ToastController,
+    private zone: NgZone
   ) {}
 
   ngOnInit() {
@@ -44,6 +49,14 @@ export class DetailArtikelPage implements OnInit {
     this.storage.get('dataUser').then(val => {
       this.dataUser = val;
     });
+  }
+
+  captchaResolved(response: string): void{
+    this.zone.run(()=>{
+      this.captchaPassed = true;
+      this.captchaResponse = response;
+    });
+    console.log('Ini response captcha '+ this.captchaResponse);
   }
 
   async dataArtikel(id: number) {
@@ -92,6 +105,14 @@ export class DetailArtikelPage implements OnInit {
       this.toast.showError('Komentar gagal dikirim');
       console.log(err);
     });
+  }
+
+  checkCaptcha() {
+    if(this.captchaPassed){
+      this.postComment();
+    } else {
+      this.toast.showError('harap validasi captcha');
+    }
   }
 
   doRefresh(event) {
