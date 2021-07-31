@@ -135,6 +135,18 @@
           }
         }
       }
+
+      ion-slides {
+        ion-slide {
+          min-width: 100%;
+          img {
+            min-width: 50%;
+            border-radius: 15px;
+            border-bottom-left-radius: 0px;
+            border-bottom-right-radius: 0px;
+          }
+        }
+      }
     }
 
     .c-layanan {
