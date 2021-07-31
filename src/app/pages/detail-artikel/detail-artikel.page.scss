@@ -72,5 +72,20 @@
         }
       }
     }
+
+    .comment-container {
+      margin-bottom: 5%;
+
+      ion-textarea {
+        border: 1px solid gray;
+        border-radius: 5px;
+        padding: 3%;
+      }
+
+      ion-button {
+        color: white;
+        height: 5vh;
+      }
+    }
   }
 }

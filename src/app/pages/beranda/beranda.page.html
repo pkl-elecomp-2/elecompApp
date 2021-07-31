@@ -45,10 +45,19 @@
     <div class="title">
       <b>Promo</b>
     </div>
-    <ion-slides pager="true" [options]="dragSlide" *ngIf="getPromo">
+    <div class="card-container ion-padding">
+      <div class="card-promo" *ngFor="let data of getPromo">
+        <img [src]="serverUrlAsset + data.poster_promo">
+        <div>
+          <h6>{{data.judul_promo}}</h6>
+          <p>{{data.deskripsi_promo}}</p>
+        </div>
+      </div>
+    </div>
+    <!-- <ion-slides pager="true" [options]="dragSlide" *ngIf="getPromo">
       <ion-slide *ngFor="let data of getPromo">
         <img [src]="serverUrlAsset + data.poster_promo">
       </ion-slide>
-    </ion-slides>
+    </ion-slides> -->
   </div>
 </ion-content>

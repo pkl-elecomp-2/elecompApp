@@ -103,40 +103,35 @@
         column-width: 50%;
       }
 
-      .d-title {
-        color: var(--ion-color-primary);
-        padding-right: 16px;
-        text-align: right;
-        column-width: 50%;
-        font-size: small;
-      }
+      .card-container {
+        display: flex;
+        justify-content: center;
 
-      ion-slides {
-        padding-bottom: 30px;
-        margin-left: 15px;
-        align-items: center;
-
-        ion-slide {
-          background: white;
-          border-radius: 10px;
-          // padding-top: 100%;
-
-          ion-card {
-            display: flex;
-            flex-direction: column;
-            width: 100% !important;
-            margin: 0 !important;
-          }
+        .card-promo {
+          width: 100%;
+          height: auto;
+          margin-bottom: 5%;
 
           img {
-            height: auto;
-            width: auto;
-            border-radius: 10px;
+            border-radius: 15px;
+            border-bottom-left-radius: 0px;
+            border-bottom-right-radius: 0px;
           }
 
-          &:before {
-            content: "";
-            margin-top: 100%;
+          div {
+            border: 1px solid var(--ion-color-primary);
+            border-radius: 15px;
+            border-top-left-radius: 0px;
+            border-top-right-radius: 0px;
+            padding: 3%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+
+            p {
+              font-size: 0.75em;
+            }
           }
         }
       }

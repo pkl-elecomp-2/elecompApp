@@ -3,6 +3,10 @@ import { ApiService } from 'src/app/services/api.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LoadingController } from '@ionic/angular';
+import { HttpParams } from '@angular/common/http';
+import { Storage } from '@ionic/storage';
+import { error } from '@angular/compiler/src/util';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-detail-artikel',
@@ -12,8 +16,11 @@ import { LoadingController } from '@ionic/angular';
 export class DetailArtikelPage implements OnInit {
 
   private artikelId: any;
+  private dataUser: any;
+  deskripsiKomentar: any;
   artikel: any;
   comments: any;
+
 
   // eslint-disable-next-line @typescript-eslint/member-ordering
   serverUrlAsset = this.api.serverUrlAsset;
@@ -22,13 +29,20 @@ export class DetailArtikelPage implements OnInit {
     private act: ActivatedRoute,
     public api: ApiService,
     public loadingController: LoadingController,
-    private router: Router
+    private router: Router,
+    private storage: Storage,
+    private toastController: ToastController
   ) {}
 
   ngOnInit() {
     this.artikelId = this.act.snapshot.paramMap.get('id');
     this.dataArtikel(this.artikelId);
     this.dataComment(this.artikelId);
+
+    this.storage.get('dataUser').then(val => {
+      this.dataUser = val;
+      console.log(val);
+    });
   }
 
   async dataArtikel(id: number) {
@@ -58,10 +72,41 @@ export class DetailArtikelPage implements OnInit {
     );
   }
 
+  async postComment() {
+
+    const params = new HttpParams()
+    .set('id_artikel', this.artikel.id_artikel)
+    .set('nama_komentar', this.dataUser.nama_member)
+    .set('email_komentar', this.dataUser.email)
+    .set('no_tlp', this.dataUser.no_telepon)
+    .set('tanggal_komentar', this.getDateNow())
+    .set('deskripsi_komentar', this.deskripsiKomentar);
+
+    console.log(this.getDateNow());
+
+    await this.api.postData( 'Artikel/comment',params).subscribe((res: any) => {
+      this.presentToast(res);
+    }, err => {
+      console.log(err);
+    });
+  }
+
   doRefresh(event) {
     this.dataArtikel(this.artikelId);
     this.dataComment(this.artikelId);
     event.target.complete();
+  }
+
+  getDateNow() {
+    const date = new Date();
+    const d = date.getDate();
+    const mo = date.getMonth();
+    const y = date.getFullYear();
+    const h = date.getHours();
+    const mi = date.getMinutes();
+    const s = date.getSeconds();
+
+    return `${y}-${mo}-${d} ${h}:${mi}:${s}`;
   }
 
   formatDate(date) {
@@ -83,5 +128,13 @@ export class DetailArtikelPage implements OnInit {
       this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
           this.router.navigate([currentUrl]);
       });
+  }
+
+  async presentToast(msg: string) {
+    const toast = await this.toastController.create({
+      message: msg,
+      duration: 2000
+    });
+    toast.present();
   }
 }
