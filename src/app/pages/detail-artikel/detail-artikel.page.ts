@@ -7,6 +7,7 @@ import { HttpParams } from '@angular/common/http';
 import { Storage } from '@ionic/storage';
 import { error } from '@angular/compiler/src/util';
 import { ToastController } from '@ionic/angular';
+import { ToastService } from 'src/app/services/toast.service';
 
 @Component({
   selector: 'app-detail-artikel',
@@ -28,6 +29,7 @@ export class DetailArtikelPage implements OnInit {
   constructor(
     private act: ActivatedRoute,
     public api: ApiService,
+    private toast: ToastService,
     public loadingController: LoadingController,
     private router: Router,
     private storage: Storage,
@@ -41,7 +43,6 @@ export class DetailArtikelPage implements OnInit {
 
     this.storage.get('dataUser').then(val => {
       this.dataUser = val;
-      console.log(val);
     });
   }
 
@@ -74,19 +75,21 @@ export class DetailArtikelPage implements OnInit {
 
   async postComment() {
 
-    const params = new HttpParams()
-    .set('id_artikel', this.artikel.id_artikel)
-    .set('nama_komentar', this.dataUser.nama_member)
-    .set('email_komentar', this.dataUser.email)
-    .set('no_tlp', this.dataUser.no_telepon)
-    .set('tanggal_komentar', this.getDateNow())
-    .set('deskripsi_komentar', this.deskripsiKomentar);
+    // Get Data Comment from User
+    const data = {
+      'id_artikel': this.artikel.id_artikel,
+      'nama_komentar': (this.dataUser.nama_member) ? this.dataUser.nama_member : '-',
+      'email_komentar': (this.dataUser.email) ? this.dataUser.email : '-',
+      'no_tlp': (this.dataUser.no_telepon_hp) ? this.dataUser.no_telepon_hp : '-',
+      'deskripsi_komentar': this.deskripsiKomentar
+    }
 
-    console.log(this.getDateNow());
-
-    await this.api.postData( 'Artikel/comment',params).subscribe((res: any) => {
-      this.presentToast(res);
+    // Send Comment Input to Server
+    await this.api.postData( 'Artikel/comment',data).subscribe((res: any) => {
+      this.toast.showSuccess(res.status);
+      this.dataComment(this.artikelId);
     }, err => {
+      this.toast.showError('Komentar gagal dikirim');
       console.log(err);
     });
   }
@@ -95,18 +98,6 @@ export class DetailArtikelPage implements OnInit {
     this.dataArtikel(this.artikelId);
     this.dataComment(this.artikelId);
     event.target.complete();
-  }
-
-  getDateNow() {
-    const date = new Date();
-    const d = date.getDate();
-    const mo = date.getMonth();
-    const y = date.getFullYear();
-    const h = date.getHours();
-    const mi = date.getMinutes();
-    const s = date.getSeconds();
-
-    return `${y}-${mo}-${d} ${h}:${mi}:${s}`;
   }
 
   formatDate(date) {
@@ -128,13 +119,5 @@ export class DetailArtikelPage implements OnInit {
       this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
           this.router.navigate([currentUrl]);
       });
-  }
-
-  async presentToast(msg: string) {
-    const toast = await this.toastController.create({
-      message: msg,
-      duration: 2000
-    });
-    toast.present();
   }
 }
