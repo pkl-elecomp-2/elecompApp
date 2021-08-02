@@ -4,6 +4,7 @@ import { LoadingController } from '@ionic/angular';
 import { ApiService } from 'src/app/services/api.service';
 import { AlertController } from '@ionic/angular';
 import { Router, NavigationExtras } from '@angular/router';
+import { ToastService } from 'src/app/services/toast.service';
 
 @Component({
   selector: 'app-member',
@@ -22,7 +23,8 @@ export class MemberPage implements OnInit {
     public loadingController: LoadingController,
     public alertController: AlertController,
     private router: Router,
-    private storage: Storage
+    private storage: Storage,
+    private toast: ToastService
   ) { }
 
   ngOnInit() {}
@@ -53,6 +55,14 @@ export class MemberPage implements OnInit {
       },
     };
     this.router.navigate(['detailmember'], navExtras);
+  }
+
+  logOut() {
+    this.storage.set('user', '');
+    // window.location.reload();
+    this.toast.showSuccess('Logout Success');
+    this.router.navigate(['tab/beranda']);
+    // this.reloadCurrentRoute();
   }
 
   doRefresh(event) {
