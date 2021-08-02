@@ -25,6 +25,10 @@ const routes: Routes = [
   {
     path: 'survey',
     loadChildren: () => import('./pages/survey/survey.module').then( m => m.SurveyPageModule)
+  },
+  {
+    path: 'detailTiket',
+    loadChildren: () => import('./pages/detail-tiket/detail-tiket.module').then( m => m.DetailTiketPageModule)
   }
 ];
 

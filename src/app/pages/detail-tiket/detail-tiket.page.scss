@@ -1,0 +1,133 @@
+:host {
+  ion-content {
+    --padding-start: 16px;
+    --padding-end: 16px;
+    --padding-top: 16px;
+    // --padding-bottom: 16px;
+
+    .c-top {
+      margin: -16px -16px 0px -16px;
+
+      .c-content {
+        height: 40px;
+        background: var(--ion-color-primary);
+      }
+      .content {
+        background: white;
+        margin: 0 16px;
+        // height: 50px;
+        border-radius: 10px;
+        box-shadow: 0 0 7px -2px rgba(0, 0, 0, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+        transform: translateY(-50%);
+
+        .logo {
+          flex: 1;
+          text-align: center;
+        }
+
+        ion-icon {
+          font-size: 16pt;
+        }
+      }
+    }
+
+    .c-galeri {
+      padding-bottom: 20px;
+
+      .galeri {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 10px;
+
+        .ticket-info {
+          border: 1px solid var(--ion-color-secondary);
+          border-radius: 10px;
+          margin-bottom: 5%;
+
+          h6 {
+            margin: 0;
+            padding: 2%;
+            background-color: var(--ion-color-secondary);
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            color: #fff;
+            text-align: center;
+          }
+
+          div {
+            display: flex;
+            justify-content: center;
+            margin: 3% 0;
+            ion-button {
+            }
+          }
+        }
+
+        .form-reply {
+          display: none;
+          border: 1px solid var(--ion-color-secondary);
+          border-radius: 10px;
+          margin-bottom: 5%;
+
+          #form-title {
+            margin: 0;
+            padding: 2%;
+            background-color: var(--ion-color-secondary);
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            color: #fff;
+            text-align: center;
+          }
+
+          .form {
+            margin: 3%;
+
+            h6 {
+              //   margin-bottom: 1%;
+            }
+
+            ion-input,
+            ion-textarea {
+              border: 1px solid gray;
+              border-radius: 5px;
+            }
+
+            ion-button {
+              margin-top: 5%;
+            }
+          }
+        }
+
+        .chat-reply {
+          .card-chat {
+            border: 1px solid var(--ion-color-secondary);
+            margin: 0 3%;
+            margin-bottom: 5%;
+
+            h6 {
+              margin: 0;
+              padding: 2%;
+              background-color: var(--ion-color-secondary);
+              color: white;
+            }
+
+            img {
+              max-width: 50%;
+              border: 1px solid gray;
+              margin: 3%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+p {
+  font-size: 10pt;
+  padding-left: 20px;
+}

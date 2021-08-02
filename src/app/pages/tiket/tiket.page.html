@@ -83,7 +83,7 @@
               <p>Date</p>
             </ion-col>
           </ion-row>
-          <ion-row *ngFor="let data of tiket | paginate: { itemsPerPage: 3, currentPage: cp }">
+          <ion-row routerLink="/detailTiket" *ngFor="let data of tiket | paginate: { itemsPerPage: 3, currentPage: cp }">
             <ion-col>
               <p>{{data.id}}</p>
             </ion-col>
