@@ -1,3 +1,4 @@
+import { ToastService } from './../../services/toast.service';
 import { Component, OnInit } from '@angular/core';
 import { LoadingController, NavController } from '@ionic/angular';
 import { ApiService } from 'src/app/services/api.service';
@@ -41,7 +42,8 @@ export class BerandaPage implements OnInit {
     private router: Router,
     public navController: NavController,
     public alertController: AlertController,
-    private storage: Storage
+    private storage: Storage,
+    private toast: ToastService
   ) {
     this.serverUrlAsset = this.api.serverUrlAsset;
   }
@@ -100,22 +102,15 @@ export class BerandaPage implements OnInit {
     const logout = document.getElementById('logout');
     // eslint-disable-next-line arrow-body-style
     this.storage.get('user').then(val => {
-      console.log(val ? true : false);
-
-      if(val) {
-        login.style.display = 'none';
-        logout.style.display ='block';
-      }else{
-        logout.style.display = 'none';
-        login.style.display = 'block';
-      }
-
+      login.style.display = (val) ? 'none' : 'block';
+      logout.style.display = (val) ? 'block' : 'none';
     });
   }
 
   logOut() {
     this.storage.set('user', '');
     window.location.reload();
+    this.toast.showSuccess('Logout Success');
     // this.router.navigate(['tab/beranda']);
     // this.reloadCurrentRoute();
   }
