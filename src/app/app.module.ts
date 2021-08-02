@@ -16,10 +16,14 @@ import { AuthGuard } from './guard/auth.guard';
 // local storage
 import { IonicStorageModule } from '@ionic/storage-angular';
 
+// pagination
+import {NgxPaginationModule} from 'ngx-pagination';
+
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, IonicStorageModule.forRoot()],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, IonicStorageModule.forRoot(), NgxPaginationModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, AuthGuard],
   bootstrap: [AppComponent],
 })

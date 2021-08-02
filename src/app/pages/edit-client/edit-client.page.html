@@ -21,11 +21,11 @@
       <div class="form">
         <div>
           <h6>Nama</h6>
-          <ion-input [value]="name" disabled></ion-input>
+          <ion-input [value]="name" [(ngModel)]="name" type="text" placeholder="Nama"></ion-input>
         </div>
         <div>
           <h6>Email</h6>
-          <ion-input type="email" placeholder="Email" [value]="email" disabled></ion-input>
+          <ion-input type="email" placeholder="Email" [value]="email" [(ngModel)]="email"></ion-input>
         </div>
         <div>
           <h6>Ganti Password</h6>

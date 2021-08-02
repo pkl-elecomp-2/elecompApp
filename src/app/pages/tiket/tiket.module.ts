@@ -8,12 +8,15 @@ import { TiketPageRoutingModule } from './tiket-routing.module';
 
 import { TiketPage } from './tiket.page';
 
+import { NgxPaginationModule } from 'ngx-pagination';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    TiketPageRoutingModule
+    TiketPageRoutingModule,
+    NgxPaginationModule
   ],
   declarations: [TiketPage]
 })

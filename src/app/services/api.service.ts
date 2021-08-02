@@ -36,4 +36,8 @@ export class ApiService {
     return this.http.get(`${this.serverUrl}/${type}`);
   }
 
+  putData(type: any, credentials): Observable<any> {
+    return this.http.put(`${this.serverUrl}/${type}`, credentials, httpOptions);
+  }
+
 }

@@ -71,7 +71,7 @@
         <ion-grid>
           <ion-row>
             <ion-col style="border-top: 2px solid gray;">
-              <p>No</p>
+              <p>Id</p>
             </ion-col>
             <ion-col style="border-top: 2px solid gray;">
               <p>Subject</p>
@@ -83,22 +83,24 @@
               <p>Date</p>
             </ion-col>
           </ion-row>
-          <ion-row>
+          <ion-row *ngFor="let data of tiket | paginate: { itemsPerPage: 3, currentPage: cp }">
             <ion-col>
-              <p>1</p>
+              <p>{{data.id}}</p>
+            </ion-col>
+            <ion-col style="max-width: 30%;">
+              <p style="color: var(--ion-color-primary);">
+                {{data.subject_web}}</p>
             </ion-col>
             <ion-col>
-              <p style="color: var(--ion-color-primary);">#00000002
-                Kok error</p>
+              <p>{{checkStatus(data.sts)}}</p>
             </ion-col>
             <ion-col>
-              <p>Awaiting your Reply</p>
-            </ion-col>
-            <ion-col>
-              <p>27-05-2021</p>
+              <p>{{data.date}}</p>
             </ion-col>
           </ion-row>
         </ion-grid>
+
+        <pagination-controls (pageChange)="cp = $event"></pagination-controls>
       </div>
 
       </div>

@@ -38,26 +38,46 @@ export class EditClientPage implements OnInit {
     this.storage.get('dataUser').then( (data) => {
       this.name = data.nama_member;
       this.email = data.email;
+      this.client = data;
+      console.log(data);
     });
   }
 
   validation() {
-    if(this.password !== undefined && this.cPassword !== undefined) {
+    // eslint-disable-next-line max-len
+    if(this.password !== undefined && this.cPassword !== undefined && (this.name !== undefined && this.name !== '') && (this.email !== undefined && this.email !== '')) {
       if(this.password !== this.cPassword){
         this.toast.showError('Password salah');
       } else {
-        this.toast.showSuccess('berhasil');
-        console.log(this.password, this.cPassword);
+        this.putEditClient();
       }
     } else {
-      this.toast.showError('Password tidak boleh kosong');
+      this.toast.showError('Field tidak boleh kosong');
     }
   }
 
-  async postEditClient() {
+  async putEditClient() {
 
     const data = {
-
+      'id': this.client.id_member,
+      'nama_member': (this.client.nama_member) ? this.name : '-',
+      'email': (this.client.email) ? this.email : '-',
+      'username': (this.client.username) ? this.client.username : '-',
+      'password': this.password
     };
+
+    console.log(this.client.id_member);
+    console.log(this.name);
+    console.log(this.email);
+    console.log(this.client.username);
+    console.log(this.password);
+
+    await this.api.putData('Client/profil',data).subscribe((res: any) => {
+      this.toast.showSuccess(res.status);
+      this.dataClient();
+    }, err => {
+      this.toast.showError('Gagal edit profil');
+      console.log(err);
+    });
   }
 }
