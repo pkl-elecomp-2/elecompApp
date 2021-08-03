@@ -1,94 +1,75 @@
-<!-- <ion-header>
-    <ion-toolbar>
-      <ion-title>
-        Artikel
-      </ion-title>
-    </ion-toolbar>
-  </ion-header> -->
-
-  <ion-content>
-    <div class="c-top">
-      <div class="c-content"></div>
-      <div class="content">
-        <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
-          <ion-refresher-content
-            pullingIcon="chevron-down-circle-outline"
-            pullingText="Pull to refresh"
-            refreshingSpinner="circles"
-            refreshingText="Refreshing..."
-          >
-          </ion-refresher-content>
-        </ion-refresher>
-        <div routerLink="/tiket">
-          <ion-icon color="primary" name="arrow-back-outline"></ion-icon>
-        </div>
-        <div class="logo">Detail Tiket</div>
-        <div><ion-icon name="alert-circle-outline" routerLink="/tentang"></ion-icon></div>
-        <!-- <div>
-            <ion-searchbar (ionInput)="FilterJSONData($artikel)"></ion-searchbar>
-          </div> -->
+<ion-content>
+  <div class="c-top">
+    <div class="c-content"></div>
+    <div class="content">
+      <div routerLink="/tiket">
+        <ion-icon color="primary" name="arrow-back-outline"></ion-icon>
       </div>
+      <div class="logo">Detail Tiket</div>
+      <!-- <div>
+          <ion-searchbar (ionInput)="FilterJSONData($artikel)"></ion-searchbar>
+        </div> -->
     </div>
-  
-    <div class="c-galeri">
-      <div class="galeri">
-        <div class="ticket-info">
-          <h6>Informasi Tiket</h6>
-          <p>
-            Kode Tiket : 00000002
-          </p>
-          <p>
-            Status : Awaiting your reply
-          </p>
-          <p>
-            Submited : 27-05-2021
-          </p>
-          <p>
-            Priority : Urgent
-          </p>
-          <div>
-            <ion-button (click)="showFormReply()" color="success"><ion-icon style="margin-right: 5%;" name="chatbubbles"></ion-icon>Reply</ion-button>
-            <ion-button color="danger"><ion-icon name="close"></ion-icon>Closed</ion-button>
-          </div>
-        </div>
+  </div>
 
-        <div id="form-reply" class="form-reply">
-          <h6 id="form-title">Reply</h6>
-          <div class="form">
-            <h6>Nama</h6>
-            <ion-input type="text" value="Lila Andana Putri"></ion-input>
-            <h6>Email</h6>
-            <ion-input type="email" value="lila@gmail.com"></ion-input>
-            <h6>Pesan</h6>
-            <ion-textarea rows="6" cols="20" placeholder="Pesan"></ion-textarea>
-            <h6>Foto</h6>
-            <input type="file">
-            <ion-button style="color: white;" color="secondary" expand="block">Submit</ion-button>
-          </div>
-        </div>
-
-        <div class="chat-reply">
-          <div class="card-chat">
-            <h6>Staff</h6>
-            <p>Selesai</p>
-          </div>
-          <div class="card-chat">
-            <h6>Lila Andana Putri</h6>
-            <p>Masih Error</p>
-          </div>
-          <div class="card-chat">
-            <h6>Staff</h6>
-            <p>Diperbaiki</p>
-          </div>
-          <div class="card-chat">
-            <h6>Lila Andana Putri</h6>
-            <p>Error halaman Home</p>
-            <img src="http://grecko.themerex.net/doc/images/404-result.png" alt="">
-          </div>
-
-          <pagination-controls (pageChange)="cp = $event"></pagination-controls>
+  <div class="c-galeri">
+    <div class="galeri">
+      <div class="ticket-info">
+        <h6>Informasi Tiket</h6>
+        <p>
+          Kode Tiket : 00000002
+        </p>
+        <p>
+          Status : Awaiting your reply
+        </p>
+        <p>
+          Submited : 27-05-2021
+        </p>
+        <p>
+          Priority : Urgent
+        </p>
+        <div>
+          <ion-button (click)="showFormReply()" color="success"><ion-icon style="margin-right: 5%;" name="chatbubbles"></ion-icon>Reply</ion-button>
+          <ion-button color="danger"><ion-icon name="close"></ion-icon>Closed</ion-button>
         </div>
       </div>
+
+      <div id="form-reply" class="form-reply">
+        <h6 id="form-title">Reply</h6>
+        <div class="form">
+          <h6>Nama</h6>
+          <ion-input type="text" value="Lila Andana Putri"></ion-input>
+          <h6>Email</h6>
+          <ion-input type="email" value="lila@gmail.com"></ion-input>
+          <h6>Pesan</h6>
+          <ion-textarea rows="6" cols="20" placeholder="Pesan"></ion-textarea>
+          <h6>Foto</h6>
+          <input type="file">
+          <ion-button style="color: white;" color="secondary" expand="block">Submit</ion-button>
+        </div>
+      </div>
+
+      <div class="chat-reply">
+        <div class="card-chat">
+          <h6>Staff</h6>
+          <p>Selesai</p>
+        </div>
+        <div class="card-chat">
+          <h6>Lila Andana Putri</h6>
+          <p>Masih Error</p>
+        </div>
+        <div class="card-chat">
+          <h6>Staff</h6>
+          <p>Diperbaiki</p>
+        </div>
+        <div class="card-chat">
+          <h6>Lila Andana Putri</h6>
+          <p>Error halaman Home</p>
+          <img src="http://grecko.themerex.net/doc/images/404-result.png" alt="">
+        </div>
+
+        <pagination-controls (pageChange)="cp = $event"></pagination-controls>
+      </div>
     </div>
-  </ion-content>
-  
+  </div>
+</ion-content>

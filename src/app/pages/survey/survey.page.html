@@ -1,74 +1,55 @@
-<!-- <ion-header>
-    <ion-toolbar>
-      <ion-title>
-        Artikel
-      </ion-title>
-    </ion-toolbar>
-  </ion-header> -->
-
-  <ion-content>
-    <div class="c-top">
-      <div class="c-content"></div>
-      <div class="content">
-        <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
-          <ion-refresher-content
-            pullingIcon="chevron-down-circle-outline"
-            pullingText="Pull to refresh"
-            refreshingSpinner="circles"
-            refreshingText="Refreshing..."
-          >
-          </ion-refresher-content>
-        </ion-refresher>
-        <div routerLink="/tab/member">
-          <ion-icon color="primary" name="arrow-back-outline"></ion-icon>
-        </div>
-        <div class="logo">Survey</div>
-        <div><ion-icon name="alert-circle-outline" routerLink="/tentang"></ion-icon></div>
-        <!-- <div>
-            <ion-searchbar (ionInput)="FilterJSONData($artikel)"></ion-searchbar>
-          </div> -->
+<ion-content>
+  <div class="c-top">
+    <div class="c-content"></div>
+    <div class="content">
+      <div routerLink="/tab/member">
+        <ion-icon color="primary" name="arrow-back-outline"></ion-icon>
       </div>
+      <div class="logo">Survey</div>
+      <!-- <div>
+          <ion-searchbar (ionInput)="FilterJSONData($artikel)"></ion-searchbar>
+        </div> -->
     </div>
+  </div>
 
-    <div class="c-survey">
-      <div class="title"><b>Survey</b></div>
-      <div style="color: white;">
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-        Lorem Ipsum has been the industry's standard dummy text ever since the
-        1500s
-      </div>
-      <form [formGroup]="FormSubmit" (ngSubmit)="survey()">
-        <ion-item lines="none">
-          <ion-label position="floating">Nama</ion-label>
-            <ion-input type="text" formControlName="nama" [(ngModel)]="nama" required></ion-input>
-        </ion-item>
-    
-        <ion-item lines="none">
-          <ion-label color="dark" position="floating">Email</ion-label>
-          <ion-input type="text" formControlName="email" [(ngModel)]="email" required></ion-input>
-        </ion-item>
-    
-        <ion-item lines="none">
-          <ion-label position="floating">No. Telepon</ion-label>
-          <ion-input type="text" formControlName="no_tlp" [(ngModel)]="no_tlp" required></ion-input>
-        </ion-item>
-    
-        <ion-item lines="none">
-          <ion-label position="floating">Kritik/Saran</ion-label>
-          <ion-textarea rows="6" type="text" formControlName="deskripsi_survey" [(ngModel)]="deskripsi_survey" required></ion-textarea>
-        </ion-item>
-        <br>
-    
-          <re-captcha (resolved)="captchaResolved($event)" siteKey="6LdQ6tgZAAAAALpjlUUZPmdlEZ-jM7QLljDiouCG" padding></re-captcha>
-        
-        <button type="submit" (click)="presentAlert()" class="btn" [disabled]="!captchaPassed || !nama || !no_tlp">
-          
-          <div *ngIf="!isLoading">KIRIM</div>
-          
-          <ion-spinner *ngIf="isLoading" color="white"></ion-spinner>
-        </button>
-        <br />
-      </form>
-    </div>    
-  </ion-content>
+  <div class="c-survey">
+    <div class="title"><b>Survey</b></div>
+    <div style="color: white;">
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+      Lorem Ipsum has been the industry's standard dummy text ever since the
+      1500s
+    </div>
+    <form [formGroup]="FormSubmit" (ngSubmit)="survey()">
+      <ion-item lines="none">
+        <ion-label position="floating">Nama</ion-label>
+          <ion-input type="text" formControlName="nama" [(ngModel)]="nama" required></ion-input>
+      </ion-item>
   
+      <ion-item lines="none">
+        <ion-label color="dark" position="floating">Email</ion-label>
+        <ion-input type="text" formControlName="email" [(ngModel)]="email" required></ion-input>
+      </ion-item>
+  
+      <ion-item lines="none">
+        <ion-label position="floating">No. Telepon</ion-label>
+        <ion-input type="text" formControlName="no_tlp" [(ngModel)]="no_tlp" required></ion-input>
+      </ion-item>
+  
+      <ion-item lines="none">
+        <ion-label position="floating">Kritik/Saran</ion-label>
+        <ion-textarea rows="6" type="text" formControlName="deskripsi_survey" [(ngModel)]="deskripsi_survey" required></ion-textarea>
+      </ion-item>
+      <br>
+  
+        <re-captcha (resolved)="captchaResolved($event)" siteKey="6LdQ6tgZAAAAALpjlUUZPmdlEZ-jM7QLljDiouCG" padding></re-captcha>
+      
+      <button type="submit" (click)="presentAlert()" class="btn" [disabled]="!captchaPassed || !nama || !no_tlp">
+        
+        <div *ngIf="!isLoading">KIRIM</div>
+        
+        <ion-spinner *ngIf="isLoading" color="white"></ion-spinner>
+      </button>
+      <br />
+    </form>
+  </div>    
+</ion-content>

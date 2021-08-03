@@ -6,12 +6,8 @@
         <img src="../../../assets/img/logo.jpg" />
       </div>
       <div>
-        <!-- BUG -->
-        <!-- <ion-icon *ngIf="checkIcon(); else showThis" name="log-out-outline" (click)="logOut()"></ion-icon> -->
-        <!-- <ng-template #showThis> -->
           <ion-icon id="logout" name="log-out-outline" (click)="logOut()"></ion-icon>
           <ion-icon id="login" name="log-in-outline" routerLink="/login"></ion-icon>
-        <!-- </ng-template> -->
       </div>
     </div>  
   </div>
@@ -45,15 +41,6 @@
     <div class="title">
       <b>Promo</b>
     </div>
-    <!-- <div class="card-container ion-padding">
-      <div class="card-promo" *ngFor="let data of getPromo">
-        <img [src]="serverUrlAsset + data.poster_promo">
-        <div>
-          <h6>{{data.judul_promo}}</h6>
-          <p>{{data.deskripsi_promo}}</p>
-        </div>
-      </div>
-    </div> -->
      <ion-slides pager="true" *ngIf="getPromo">
       <ion-slide *ngFor="let data of getPromo">
         <ion-card>

@@ -66,12 +66,6 @@ export class EditClientPage implements OnInit {
       'password': this.password
     };
 
-    console.log(this.client.id_member);
-    console.log(this.name);
-    console.log(this.email);
-    console.log(this.client.username);
-    console.log(this.password);
-
     await this.api.putData('Client/profil',data).subscribe((res: any) => {
       this.toast.showSuccess(res.status);
       this.dataClient();
